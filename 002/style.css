@@ -1,4 +1,14 @@
 h1 {
-
     color: blueviolet;
+}
+.img {
+    width: 50%;
+    height: 300px;
+}
+th {
+    color: brown;
+    border: 10px;
+}
+h3 {
+    color: darkblue;
 }

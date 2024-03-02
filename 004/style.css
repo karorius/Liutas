@@ -1,7 +1,42 @@
-img{
-width: 500px;
-height: 500px;
-object-fit: cover;
-border: 1px solid black;
-
+body {
+  margin: 0;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+.image {
+  width: 50%;
+  min-width: 500px;
+  max-width: 700px;
+  display: inline-block;
+}
+.no-space {
+  font-size: 0;
+}
+.text {
+  font-size: 16px;
+  display: inline-block;
+  width: 33.333%;
+}
+.frame {
+  margin: 10px;
+  border: 1px solid brown;
+  padding: 10px;
+  border-radius: 10px;
+}
+p {
+  text-align: justify;
+}
+  h1.img-header {
+    color: coral;
+  }
+.Labas {
+  color: blueviolet;
+}
+.Gitta {
+  text-align: right;
+}
+.Gitta:hover {
+  color: darkred;
 }
