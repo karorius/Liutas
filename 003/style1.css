@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+}
+div {
+    font-size: 0;
+
+}
+span {
+    color: #eb87b9;
+}
+.kazinkas {
+    color: aqua;
+    font-size: 50px;
+    line-height: 1.5;
+    letter-spacing: 4px ;
+    margin: 0;
+    border: 2px solid blue;
+    padding: 20px;
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    }
+i.kuku {
+    
+    color: black;
+    font-size: 80px;
+}

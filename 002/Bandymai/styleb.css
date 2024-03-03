@@ -1,5 +1,26 @@
-h1 {
-    color: blue;
-    text-align: center;
-    border: 20px;
+body {
+  margin: 0;
 }
+h1 {
+  color: blue;
+  text-align: center;
+}
+
+.text {
+    font-size: 16px;
+    display: inline-block;
+    width: 33%;
+  }
+  .frame {
+    margin: 10px;
+    border: 1px solid brown;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .pavadinimas {
+    color: blue ;
+    font-size: 20px;
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+  }
