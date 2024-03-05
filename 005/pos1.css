@@ -1,0 +1,11 @@
+.circle {
+    width: 500px;
+    height: 500px;
+}
+.circle.red {
+    background-color:red;
+}
+.circle.blue {
+    background-color: blue;
+}
+    
