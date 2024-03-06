@@ -1,5 +1,9 @@
+:root {
+    --img:500px
+}
 body {
    margin: 0;
+   font-family: "Oswald", sans-serif;
 }
 
 .Layout {
@@ -98,11 +102,11 @@ img {
 .img-container2:hover .img12 {
     left: -520px;
 }
+   
 .img-container2:hover .img22 {
     left: 20px;
 }
 svg {
-    width: 40px;
     height:40px ;
     fill: olivedrab;
     transition: all 0.3s;
@@ -110,4 +114,126 @@ svg {
 }
 svg:hover {
     fill: blue;
+}
+.about {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.about .text {
+    width: 100%;
+    position: relative;
+
+}
+.about .text h2::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: pink;
+    border-radius: 50%;
+    position: relative;
+    bottom: 5px;
+}
+
+.about .text h2::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: pink;
+    border-radius: 50%;
+    position: relative;
+    bottom: 5px;
+}
+
+
+/* @media only screen and (max-width: 600px) { */
+    /* .about .text { */
+        /* width: 100%; */
+    
+    /* } */
+/* } */
+@media only screen and (min-width: 600px) {
+.about .text {
+    width: 50%;
+
+}
+.about .text .h2 {
+    font-size: 30px;
+
+}
+}
+@media only screen and (min-width: 950px) {
+    .about .text {
+        width: 25%;
+    
+    }
+    .about .text .h2 {
+       font-size: 40px;
+    }
+    }
+    .burger-holder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+    }
+    .desktop-menu {
+        display: none;
+    }
+
+    @media only screen and (min-width: 950px) {
+        .desktop-menu {
+        display: flex;
+    }
+        .mobile-menu {
+            display: none;
+        }
+    }
+    
+    .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        position: relative;
+        
+    }
+     
+    .burger div {
+        width: 100%;
+        height: 5px;
+        background-color: white;
+        transition: all 0.3s;
+    }
+    .left-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        background-color: lightsalmon;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        transition: all 0.3s;
+        margin: 0;
+        z-index: 100;
+        height: 100vh;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+   left-menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
 }

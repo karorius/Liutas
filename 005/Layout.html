@@ -4,19 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="http://127.0.0.1:5500/005/Layout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <title>Layout</title>
   </head>
  <body>
+  <ul class="desktop-left menu" >
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">contakt</a></li>
+  </ul>
+
     <div class="Layout">
       <div class="bin menu">
         <div class="container">
           <nav>
-            <ul>
+            <ul class="desktop-menu" >
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Services</a></li>
               <li><a href="#">contakt</a></li>
             </ul>
+            <div class="mobile-menu burger-holder">
+              <div class="burger">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+              </div>
+          </div>
             <ul>
               <li>
                 <a href="#">
@@ -49,8 +66,8 @@
       <div class="bin">
         <div class="container">
           <div class="HERO">
-            <h1>HERO</h1>
-               <div class="img-container2">
+             <h1>HERO</h1>
+                <div class="img-container2">
                  <img class="img img12" src="http://127.0.0.1:5500/005/pav1.jpg" alt="pav1">
                  <img class="img img22" src="http://127.0.0.1:5500/005/pav2.jpg" alt="pav2">
                 </div>
@@ -58,8 +75,31 @@
            </div>
         </div>
       </div>
-    </div>
-    
+     
+        <div class="bin">
+          <div class="container">
+            <div class="about">
+             <div class="text">
+                <h2>About</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde adipisci fuga </p>                                                                             
+              </div>
+              <div class="text">
+                 <h2>Services</h2>
+                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde adipisci fuga </p>
+              </div>
+              <div class="text">
+                 <h2>Contact</h2>
+                  <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde adipisci fuga </P>
+              </div>
+              <div class="text">
+                  <h2>About lorem</h2>
+                  <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde adipisci fuga voluptatem, consequatur quas nam nisi, doloremque voluptatibus,</P>
+               </div>
+            </div>
+          </div>
+        </div>
+      
    </div>
   </body>
 </html>
+     
