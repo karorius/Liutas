@@ -1,11 +1,140 @@
+.parent {
+    
+    width: 700px;
+    height: 700px;
+    background-color: aquamarine;
+    position: relative;
+    left: 500px;
+}
 .circle {
-    width: 500px;
-    height: 500px;
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+    left: 200px;
+    top: 200px;
 }
 .circle.red {
     background-color:red;
+    position: absolute;
 }
 .circle.blue {
     background-color: blue;
 }
+.btn {
+    font-size: 50px;
+    padding: 30px 50px ;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
     
+}
+.btn svg {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    transition: 0.3s;
+    top: 20px;
+    left: -20px;
+}
+.btn span {
+    position: relative;
+    top: -20px;
+    left: 20px;
+    transition: 0.3s;
+}
+.btn:hover svg {
+    top: -20px;
+    left: -40px;
+    fill: seagreen ;
+
+}
+.btn:hover span {
+    top: 20px;
+    left: 40px;
+}
+.img-container {
+    border: 1px solid black;
+    padding: 20px;
+    width: 500px;
+    position: relative;
+    margin: 20px;
+    height: 330px;
+
+}
+
+img {
+    width: 500px;
+    height: auto;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+.img1 {
+    opacity: 1;
+}
+
+.img2 {
+    opacity: 0;
+}
+
+.img-container:hover .img1 {
+    opacity: 0;
+}
+
+.img-container:hover .img2 {
+    opacity: 1;
+}
+.img-container2 {
+    border: 1px solid black;
+    padding: 20px;
+    width: 500px;
+    position: relative;
+    margin: 20px;
+    height: 330px;
+    overflow: hidden;
+}
+
+.img-container2 img {
+    position: absolute;
+    display: inline-block;
+}
+
+.img-container2 .img12 {
+    top: 20px;
+    left: 20px;
+    transition: all 0.5s;
+}
+
+.img-container2 .img22 {
+    top: 20px;
+    left: 540px;
+    transition: all 0.5s;
+}
+
+.img-container2:hover .img12 {
+    left: -520px;
+}
+
+.img-container2:hover .img22 {
+    left: 20px;
+}
+svg {
+    width: 40px;
+    height:40px ;
+    fill: olivedrab;
+    transition: all 0.3s;
+
+}
+svg:hover {
+    fill: blue;
+}
+.Vienam.gale.kablys {
+    width: 100;
+    height: 500px;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

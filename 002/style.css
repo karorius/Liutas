@@ -1,14 +1,14 @@
-h1 {
-    color: blueviolet;
+body {
+    margin: 0;
 }
-.img {
-    width: 50%;
-    height: 300px;
+
+.Layout {
+    width: 100%;
 }
-th {
-    color: brown;
-    border: 10px;
+.bin menu {
+    width: 100%;
 }
-h3 {
-    color: darkblue;
+.container {
+    background-color: red ;
+    height: 100%;
 }
