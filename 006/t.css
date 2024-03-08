@@ -1,22 +1,29 @@
 body {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
   }
   
-  .container {
+  .plus {
     position: relative;
+    max-width: 200px;
+    max-height: 200px;
   }
   
-  .plus-sign {
+  .plus ::before {
+    content: "";
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color:white;
-    color: blue;
-    font-size: 200px;
-    text-align: center;
-    line-height: 200px;
+    width: 100;
+    height: 50;
+    top: 75px;
+    background-color: beige;
+
+  }
+  .plus ::after {
+    content: "";
+    position: absolute;
+    
   }
