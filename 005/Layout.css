@@ -62,8 +62,8 @@ svg:hover {
     fill: darkblue;
 }
 .HERO {
-    width: 100;
-    height: 500px;
+    width: 100%;
+    height: 600px;
     background-color: yellow;
     display: flex;
     justify-content: center;
@@ -71,8 +71,8 @@ svg:hover {
     flex-direction: column;
 }
 img {
-    width: 500px;
-    height: auto;
+    width:500px;
+    height:auto;
     position: absolute;
     transition: all 0.5s;
 }

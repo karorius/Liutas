@@ -1,0 +1,70 @@
+body, html {
+    height: 100vh;
+    margin: 0;
+    background-image: url(./pav2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+     
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image-container img {
+    width:700px;
+    height: auto;
+  }
+  
+  .overlay-list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    
+  }
+  
+  .overlay-list li {
+    margin-bottom: 10px;
+    
+}
+.overlay-list li a {
+   color: greenyellow; 
+   font-size: x-large;
+   font-weight: bolder ;
+}
+    
+h1 {
+  color: white;
+  text-align: center;
+   }
+   .text {
+    font-size: 16px;
+    display: inline-block;
+    width: 33%;
+    color: rgba(80, 255, 188, 0.61);
+    justify-content: center;
+  }
+   .frame {
+    margin: 10px;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+  }
+  .pavadinimas {
+    color: greenyellow;
+    font-size: 20px;
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+  }
+  
+
+/* .pavadinimas {
+    color: aliceblue;
+    font-size: large;
+} */

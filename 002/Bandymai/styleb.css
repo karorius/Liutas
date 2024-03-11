@@ -1,32 +1,17 @@
 body {
    margin: 0;
-}
+
+} 
+
 .Image {
   text-align: center;
 }
+
+
 h1 {
-  color: blue;
+  color: white;
   text-align: center;
 }
-.text {
-    font-size: 16px;
-    display: inline-block;
-    width: 33%;
-  }
-  .frame {
-    margin: 10px;
-    border: 1px solid brown;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .pavadinimas {
-    color: blue ;
-    font-size: 20px;
-    display: inline-block;
-    width: 33%;
-    text-align: center;
-  }
-  a {
-    background-color: brown;
-    font-size: 20px;
-  }
+
+ 
+   
