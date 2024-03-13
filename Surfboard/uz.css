@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    background-color: black;
+    height: 100vh;     
+    font-family: ShopifySans, Helvetica, Arial, Lucida Grande, sans-serif;
+   
+    }
+    .announcement-bar__message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1; /* Sumažina eilės tarpą */
+    }
+    .icon-arrow {
+        margin-left: 5px; 
+        width: 16px; 
+        height: 10px;
+    }
+
+div {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(227,252, 2);
+    height: 100px;
+    position: relative;
+}
+p {
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    font-size: 18.2px;
+    
+}
