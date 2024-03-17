@@ -1,10 +1,18 @@
-body {
+/* body {
     margin: 0;
     background-color: black;
     height: 100vh;     
     font-family: ShopifySans, Helvetica, Arial, Lucida Grande, sans-serif;
    
+    } */
+    body {
+        background-color: black;
     }
+    * {margin: 0;
+        padding: 0;
+        box-sizing:border-box ;
+        font-family: "Oswald" , sans-serif;
+        }
     .announcement-bar__message {
         display: flex;
         align-items: center;
@@ -17,7 +25,7 @@ body {
         height: 10px;
     }
 
-div {  
+    .beginning {  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,5 +40,81 @@ p {
     justify-content: center;
     position: absolute;
     font-size: 18.2px;
-    
+   }
+   img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .menuContainer {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    padding: 50px 100px;
+   }
+   .logoImg {
+    width: 90px;
+    }
+    .topNavContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 50px;
+    }
+    .topUlcontainer {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        gap: 40px;
+        
+        /* float: left;
+        background-color: aqua; */
+    }
+    .topUlcontainer li {
+        list-style: none;
+    }
+    .topUlcontainer li a {
+        text-decoration: none;
+        font-family: "Oswald", sans-serif;
+        font-weight:700;
+        color: #FFFFFFBF;
+    }
+.topUlcontainer li a:hover {
+    border-bottom: 1px solid white;
+    cursor: pointer;
+
 }
+svg {
+    color:#FFFFFFBF ;
+}
+.image-with-text {
+    display: flex;
+    flex-direction: column-reverse;
+    column-gap: 50px ;
+    margin: 50px;
+}
+ .image-with-textheading {
+   
+    color:#FFFFFFBF ;
+    width: 500px;
+    height: 180px;
+    font-size: 60px;
+    }
+.surfers {
+    display: flex;
+    text-align: justify;
+    color:#FFFFFFBF ;
+    width: 500px;
+    height: 150px;
+    font-family:  "Avenir Next", sans-serif;
+
+}
+nav {
+    border-left: 3px solid red;
+    border-right: 3px solid red;
+}
+.icon {
+    display: flex;
+    justify-content: flex-end;
+}
+
