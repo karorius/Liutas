@@ -1,0 +1,129 @@
+
+* {margin: 0;
+    padding: 0;
+    box-sizing:border-box ;
+    font-family: "Oswald" , sans-serif;
+    }
+    body {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: 0.06rem;
+    background-color:black ;
+    .topline {
+        width: 100%;
+        height:50px ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(227,252, 2);
+        font-family: "Oswald", sans-serif;
+        color:black;
+        }
+    
+    p::after {
+        content: "\F138";
+        font-family: "bootstrap-icons";
+    }
+    .menuContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; 
+        padding: 50px;
+        width: 100%;
+        height: 100PX;
+    }   
+    .logoImg {
+        width: 90px;
+        }
+        .topNavContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 50px;
+            width: 80%;
+            
+        }
+        .topUlcontainer {
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            gap: 40px;
+            
+        } 
+        .topUlcontainer li {
+            list-style: none;
+        }
+        .topUlcontainer li a {
+            text-decoration: none;
+            font-family: "Oswald", sans-serif;
+            font-weight:700;
+            color: #FFFFFFBF;
+        }
+        .topUlcontainer li a:hover {
+            border-bottom: 1px solid white;
+            cursor: pointer;
+        
+        }
+        svg {
+            color:#FFFFFFBF ;
+            font-size: larger;
+        }
+        .mainContainerSectionOne {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            
+        }
+        .mainContainer  {
+            margin-left: 30px;
+           margin-bottom: 100px;
+        }    
+        .surfers {
+            margin-top: 20px;
+            align-items: center;
+            color:#FFFFFFBF ;
+            width: 580px;
+            height: 110px;
+            font-family:  "Avenir Next", sans-serif;
+            font-size: 16px;
+          
+        }
+        .topHead {
+            display: flex;
+            font-size: 50px;
+            text-align: center;
+            /* width: 60%; */
+            color:#FFFFFFBF ;
+        }
+        .topHeadBtn {
+            padding: 20px 30px;
+            background-color:yellow;
+            color: black;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .mainContainerSectionTwo {
+            display: flex;
+            flex-basis: auto;
+            margin-top: 50px;
+        } 
+        .img-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            height: 100%;   
+             }
+        .image {
+            
+        }
+        .img1 {
+            
+            width: 50%
+            
+            margin: 16px 0px 0px 0px;
+        }
+        
