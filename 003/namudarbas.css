@@ -10,9 +10,9 @@
     display: flex;
     flex-direction: column;
     position: relative;
-} */
+}
 
-/* .kvadratas {
+.kvadratas {
     display: flex;
     width: 1393px;
     height: 1080px;
@@ -30,7 +30,10 @@
     color: #FFFFFF;
     
  }
- p {
+ h1:hover {
+    border-bottom: 2px solid #4b8dc2
+ }
+ .lorem {
     width: 625px;
     height: 54px;
     margin-top: 10px;
@@ -38,8 +41,10 @@
     font-size: 18px;
     line-height: 27px;
     color: #7F7F7F;
-    ;
     font-family: "Poppins";
+ }
+ .lorem:hover {
+    border-bottom: 2px solid #4b8dc2
  }
  .container {
     margin-top: 10px;
@@ -63,9 +68,8 @@ input[type=text], select {
   }
 
   .container1 {
-    /* display: block;
-    position: relative; */
-    padding-left: 826px;
+    
+    margin-left: 826px;
     margin-bottom: 12px;
     cursor: pointer;
     margin-top: 5px;
@@ -101,8 +105,21 @@ span {
     font-size: 16px;
     line-height: 24px;
 
-}
+}   
 span::after {
     content: "\F138";
         font-family: "bootstrap-icons";
+}
+p {
+    width: 625px;
+    height: 54px;
+    margin-top: 10px;
+    margin-left: 826px;
+    font-size: 16px;
+    line-height: 27px;
+    color: #7F7F7F;
+    font-family: "Poppins";
+}
+hr:hover {
+    border-bottom: 1px solid #4B72C2;;
 }

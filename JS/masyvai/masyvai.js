@@ -5,14 +5,27 @@
 // const animals = ['kiskis','briedis','meska','vilkas','lape']
 // console.log(animals);
 
-function rand(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-const sknr = [];
-for( i = 0 ; i < 30 ; i++) {
-    let sknr1 = rand(5,25);
-    sknr.push(sknr1);
-}
-console.log(sknr)
+// function rand(min, max) {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+// const sknr = [];
+// for( i = 0 ; i < 30 ; i++) {
+//     let sknr1 = rand(5,25);
+//     sknr.push(sknr1);
+// }
+// console.log(sknr)
+
+// let seka = sknr
+
+// let daugiau10 = 0;
+
+
+// for (let i = 0; i < daugiau10; i++) {
+//     if (seka[i] > 10) {
+//         daugiau10; 
+//     }
+// }
+
+
