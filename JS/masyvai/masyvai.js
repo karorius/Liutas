@@ -1,31 +1,29 @@
-// const o = {vardas:'jonas', amzius: '22', miestas: 'vilnius'};
-// const a1 = ['jonas','22','vilnius'];
-// console.log('o',o);
-// console.log('a1',a1);
-// const animals = ['kiskis','briedis','meska','vilkas','lape']
-// console.log(animals);
+console.log("laba diena")
+function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+const vienas = []
+const du = []
+const trys =[]
 
-// function rand(min, max) {
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-// const sknr = [];
-// for( i = 0 ; i < 30 ; i++) {
-//     let sknr1 = rand(5,25);
-//     sknr.push(sknr1);
-// }
-// console.log(sknr)
+for(let i =0; i < 200;i++) {
+    vienas.push(['A','B','C','D'][rand(0,3)] );
+    du.push(['A','B','C','D'][rand(0,3)]);
+    trys.push(['A','B','C','D'][rand(0,3)]);
+}
+console.log(vienas,du,trys)
+const bendras = [];
+for(let i = 0; i < 200; i++) {
+    bendras.push(vienas[i] + du[i] + trys[i]);
+}
+console.log(bendras);
 
-// let seka = sknr
-
-// let daugiau10 = 0;
-
-
-// for (let i = 0; i < daugiau10; i++) {
-//     if (seka[i] > 10) {
-//         daugiau10; 
-//     }
-// }
-
-
+const unikalios = []
+for (let i = 0; i < 200; i++) {
+    if(-1 == unikalios.indexOf(bendras[i])) {
+        unikalios.push(bendras[i]);
+    }
+}
+console.log(unikalios);

@@ -215,3 +215,101 @@ width: 100px;
 .imgContainer {
     width: 50%;
 }
+.videoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 250px;
+    gap: 50px;
+    
+}
+.VideoPara {
+    width: 50%;
+    text-align: center;
+}
+
+.projektsDoneContainer {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+    
+.cardsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.projektDoneCard {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.projektDoneCard img {
+    width: 300px;
+}
+.projektDoneCard p {
+  margin-left: 10px;  
+}
+.projektDoneParaText {
+    color: #60267F;
+    font-weight: 600;
+}
+.projektDoneParaNumber {
+    font-weight: 600;
+}
+.ReadyToStartContainer {
+    margin-top: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.ReadyToStartHeader {
+    font-size: 36px;
+}
+.ReadyToStartSpan {
+    font-size: 14px;
+    color:  #A79D9D;
+}
+    
+.ReadyToStartDisccountContainer {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.ReadyToStartMonthly {
+    color:#A79D9D ;
+    font-size: 14px;
+}
+.ReadyToStartYearly {
+    font-size: 14px;
+    font-weight: 600;
+}
+.ReadyToStartDiscount {
+    background-color:#FFEB7A ;
+    font-size: 10px;
+    padding:2px 7px ;
+}
+.bigCardsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 40px;
+    
+}
+.bigCard {
+    border: 0.5px solid #AAAAAA ;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+    border-radius: 5px;
+}
