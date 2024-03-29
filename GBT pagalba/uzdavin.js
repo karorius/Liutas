@@ -115,10 +115,60 @@ do {
 Atspausdinti po porą skirtingų atsitiktinių skaičių nuo 0 iki 10 (abu skaičiai vienoje eilutėje). Skaičiuoti abiejų skaičių sumas skirtinguose kintamuosiuose, kol kiekviena iš sumų bus daugiau nei 100:
 javascript
 Copy code
-let pirmoSkaiciausSuma = 0;
-let antroSkaiciausSuma = 0;
+let suma1 = 0;
+let suma2 = 0;
 
-while (pirmoSkaiciausSuma <= 100 || antroSkaiciausSuma <= 100) {
-    let pirmas = Math.floor(Math.random() * 11);
-    let antras = Math.floor(Math.random() * 11);
-    console.log(p
+while (suma1 <= 100 || suma2 <= 100) {
+    let skaicius1 = rand(0, 10);
+    let skaicius2 = rand(0, 10);
+
+    console.log(skaicius1, skaicius2);
+
+    suma1 += skaicius1;
+    suma2 += skaicius2;
+}
+
+console.log("Pirmos sumos:", suma1);
+console.log("Antros sumos:", suma2);
+    Atspausdinti skirtingus atsitiktinius skaičius nuo 0 iki 10, paskutinis skaičius turi būti 5 arba 7, suskaičiuoti kiek ciklų prasisuko:
+javascript
+function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+function generateRandomUntil5or7() {
+    let count = 0;
+    let randomNumber;
+
+    while (true) {
+        randomNumber = rand(0, 10);
+        console.log(randomNumber);
+        count++;
+        if (randomNumber === 5 || randomNumber === 7) {
+            break;
+        }
+    }
+
+    console.log("Ciklų skaičius:", count);
+}
+
+generateRandomUntil5or7();
+// Ši funkcija, generateRandomUntil5or7(), generuoja atsitiktinius skaičius nuo 0 iki 10 ir juos spausdina, kol randamas skaičius 5 arba 7. Taip pat ji suskaičiuoja, kiek ciklų reikėjo, norint pasiekti šį tikslą, ir tai atspausdina.
+
+// Štai aprašymas funkcijos veikimo:
+
+// Sukuria kintamąjį count, priskiria jam reikšmę 0, skirtą saugoti ciklų skaičiui.
+// Sukuria kintamąjį randomNumber, kuriame bus saugomas atsitiktinis sugeneruotas skaičius.
+// Pradeda begalinį ciklą naudodama while (true).
+// Kiekvieno ciklo metu sukuria naują atsitiktinį skaičių nuo 0 iki 10 naudodama funkciją rand(min, max).
+// Atspausdina šį sugeneruotą skaičių.
+// Didina count kintamąjį vienetu, nes buvo atliktas naujas ciklas.
+// Patikrina, ar sugeneruotas skaičius yra 5 arba 7. Jei taip, nutraukia ciklą su break.
+// Baigęs ciklą, atspausdina kiek buvo ciklų sukonstruota.
+// Tai pagrindinė funkcija, kurią galite iškviesti, kad atliktų nurodytus veiksmus.
+
+
+
+
+

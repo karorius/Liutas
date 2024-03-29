@@ -23,3 +23,11 @@ for (let i = 0; i < a.length; i++) {
 }
 
 console.log("Mažiausias skaičius: " + mazsk);
+let i = 0;
+let temp = 0;
+temp = Math.min(...newMD[i]);
+for (i = 0; i < 5; i++) {
+  if (Math.min(...newMD[i]) < temp) {
+    temp = Math.min(...newMD[i]);
+  }
+}
