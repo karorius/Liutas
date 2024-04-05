@@ -5,12 +5,7 @@ function rand(min, max) {
 }
 // Uzdavinys is testo
 
-let a = rand(1,7);
-let b = rand(1,7);
-let c = rand(1,7);
-let sum =a + b + c;
-console.log(a,b,c)
-console.log('' + Math.min(a,b,c) + (a+ b + c - Math.min(a,b,c)-Math.max(a,b,c)) + Math.max(a,b,c))
+
 let a = rand(1, 7);
 let b = rand(1, 7);
 let c = rand(1, 7);

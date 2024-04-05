@@ -4,30 +4,46 @@ function rand(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const a = []
-for (let i = 0; i < 5; i++) {
-    const row = [];
-    for (let j = 0; j < 4; j++) {
-        row.push(rand(10, 99));
-    }
-    a.push(row);
-} 
-console.table(a);
-let mazsk = a[0][0];
-for (let i = 0; i < a.length; i++) {
-    for (let j = 0; j < a[i].length; j++) {
-        if (a[i][j] < mazsk) {
-            mazsk = a[i][j];
-        }
-    }
-}
+function sand(a,) {
+const rez = a*6;
+console.log(rez);
+};
 
-console.log("Mažiausias skaičius: " + mazsk);
-let i = 0;
-let temp = 0;
-temp = Math.min(...newMD[i]);
-for (i = 0; i < 5; i++) {
-  if (Math.min(...newMD[i]) < temp) {
-    temp = Math.min(...newMD[i]);
-  }
+ sand(10)  
+console.clear()
+
+function megaSum( a,b,...all) {
+    rez = 0;
+    for (let i = 0; i < all.length; i++) {
+        rez += all[i]
+    }
+    console.log(rez);
 }
+megaSum(10,20,30,50);
+console.clear();
+
+
+function returnSum(a,b) {
+    const rez = a+b ;
+    return rez;
+}
+const s1 = returnSum(8,5);
+console.log(s1);
+
+
+function kvadratas(a) {
+    const rez = a*a ;
+    return rez;
+}
+const k1 = kvadratas(8,);
+console.log(k1);
+
+console.clear();
+
+// function multiAndSum(a,b) {
+//     const rezMulti = a*b;
+//     const rezSum =a+b;
+//     const rez = [rezMulti,rezSum];
+// }
+//     const [a,b] = multiAndSum(4.5);
+//     console.log(a,b);

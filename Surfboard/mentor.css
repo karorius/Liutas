@@ -397,17 +397,22 @@ font-weight: 700;
 }
 
 
-main {
-  align-items: center;
-  position: relative;
-  top: 50px;
-}
- 
-section {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
+.workgroup {
+    align-items: center;
+    position: relative;
+    top: 50px;
+  }
+   
+ .tekstai {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .piesineliai {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
  
 .hasdu {
     margin-top: 100px;
@@ -502,49 +507,49 @@ section {
  
 .piesineliai .ikonyte1 {
   position: absolute;
-  left:380px;
+  left:600px;
   top: -20px;
 }
  
 .piesineliai .ikonyte2 {
   position: absolute;
-  left: 464.87px;
+  left: 674.87px;
   top: 70px;
 }
  
 .piesineliai .ikonyte3 {
   position: absolute;
-  left: 580px;
+  left: 780px;
   top: 60px;
 }
  
 .piesineliai .ikonyte4 {
   position: absolute;
-  left: 660px;
+  left: 870px;
   top: 104px;
 }
  
 .piesineliai .ikonyte5 {
   position: absolute;
-  left: 760px;
+  left: 980px;
   top: 110px;
 }
  
 .piesineliai .ikonyte6 {
   position: absolute;
-  left: 880px;
+  left: 1090px;
   top: 104px;
 }
  
 .piesineliai .ikonyte7 {
   position: absolute;
-  left: 970px;
+  left: 1180px;
   top: 110px;
 }
  
 .piesineliai .ikonyte8 {
   position: absolute;
-  left: 1010px;
+  left: 1220px;
   top: 49px;
 }
 
@@ -608,6 +613,7 @@ padding-bottom: 100px;
     border-radius: 4px;
     color: #FFFFFF;
 }
+
 .MapsInfo {
     background: #E2BDF21C;
 
@@ -615,7 +621,7 @@ padding-bottom: 100px;
 .MapsInfo1 {
     
     margin: auto;
-    width: 80%;
+    width: 1406px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -662,6 +668,8 @@ padding-bottom: 100px;
     height: 289px;
     
 }
+
+
 .section-3 {
     font-family: sans-serif;
     color: #3a3a3e;
@@ -672,6 +680,7 @@ padding-bottom: 100px;
     width: 400px;
     margin-right: 50px;
     margin-left: 250px;
+    
     display: block;
     height: auto;
     text-align: left;
@@ -726,7 +735,7 @@ padding-bottom: 100px;
   }
    
   .footerContainer {
-    margin-top: 200px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
