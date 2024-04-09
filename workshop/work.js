@@ -26,7 +26,7 @@ console.log(neigiamiSkaiciai)
 const didžiausiasNeigimas = Math.max(...neigiamiSkaiciai);
  
 console.log(didžiausiasNeigimas);
-
+// Surasti didžiausią skaičių, kuris yra mažesnis už 50;
 const did50 = [];
 for (let i = 0; i < A.length; i++) {
     if (A[i] < 50) {
@@ -55,20 +55,14 @@ console.log(suma)
 let neigiamaSuma = 0;
 for (let i = 0; i < A.length; i++) {
     if (A[i] < 0) {
-        neigiamaSuma -=A[i] * A[i];
+        neigiamaSuma -= A[i] * A[i];
     }
 }
 console.log(neigiamaSuma);
 
 // Suskaičiuoti kiek skaičių patenka į intervalą (imtinai) 25-75
 
-// let intervalas25 = 0;
-// for(let i =0; A.length; i++) {
-//     let skaicius = A[i];
-//     if (skaicius >= 25 && skaicius <= 75) {
-//         intervalas25++;
-// }}
-// console.log(intervalas25)
+
 
 let intervalas25 = 0;
 A.forEach(function(skaicius2) {
@@ -166,50 +160,56 @@ const B = [
     'youre never too old to learn'
 ];
 
-B.sort((a, b) => a.length - b.length); //isrusiuojam didejancia tvarka
+// B.sort((a, b) => a.length - b.length); //isrusiuojam didejancia tvarka
  
-let ilgiausias = B[B.length - 1].length;
+// let ilgiausias = B[B.length - 1].length;
  
-console.log(B);
+// console.log(B);
+
 
 // Surasti trumpiausią stringą;
 
-B.sort((a, b) => a.length - b.length); //isrusiuojam didejancia tvarka
- 
-let trumpiausias = B[0].length;
- 
-console.log(B);
+ let trumpiausias = '';
+ let trumpiausiasIlgis = Infinity;
+ for(let i=1 ;i < B.length ; i++) {
+    const dabartinis = B[i];
+    if( dabartinis.length < trumpiausiasIlgis) {
+        trumpiausias = dabartinis;
+        trumpiausiasIlgis = dabartinis.length
+    }
 
-console.log(trumpiausias);
+ }
+ console.log('trumpiausias stringas',trumpiausias);
+
+ let ilgiausias = '';
+ let ilgiausiasIlgis = 0;
+ for(let i =0;i < B.lenght ; i++) {
+    const dabartinis1 = B[i]
+    if(dabartinis1.length > ilgiausiasIlgis) {
+           ilgiausias = dabartinis1;
+           ilgiausiasIlgis = dabartinis1.length
+    }
+ }
+ console.log('Ilgiausias Stringas:',ilgiausias);
+
 
 
 // Surasti stringą, kuris prasideda “a” raide;
 
-let stringas = 0;
+let stringas = [];
  for(let i= 0; i < B.length ; i++) {
     let dabar = B[i];
     if(dabar[0] == 'a') {
         console.log(dabar)
+        dabar = stringas;
     }
  }
 
+
+
 //  Surasti stringą su daugiausia žodžių;
 
-// let maxzodis = 0;
-// let stringasmax = ' ';
-// for(let i = 0; i < B.length; i++) {
-//     const VisString = B[i];
-//     const zodziai = VisString.trim().split(/\s+/).length;
-//     if( zodziai > maxWords) {
-//         maxWords = zodziai;
-//         stringasmax = VisString;
-//     }
 
-// }
-
-// let stringas1 = B[0].split(' ') ;
-// console.log(stringas1.length)
-// console.log(B[0].split(' '))
 
 let maxWords = 0;
 let stringWithMostWords = '';
@@ -243,5 +243,63 @@ function findStringWithMostWords(strings) {
 const result = findStringWithMostWords(B);
 console.log(`Stringas su daugiausia žodžių: "${result}"`);
 
-// Surasti stringą su mažiausiai žodžių;
+/*
+suskaiciuoti kiek raidziu masyve
+*/
 
+const str = 'the quick brown fox';
+const stringLength = str => str.length;
+const rezult1 = stringLength(str);
+console.log('--------------------------')
+console.log(rezult1);
+
+
+const countLetters = arr => {
+    let count = 0;
+ 
+    
+    for(let i = 0 ; i < arr.length; i++) {
+
+    count += stringLength(arr[i]);
+}
+return count;
+}
+const rezult = countLetters(B);
+console.log('raidziu masyve yra:',rezult);
+console.clear()
+
+
+const catsAndOwners = [
+    { cat: 'Fluffy', owner: 'Jonas' },
+    { cat: 'Garfield', owner: 'Petras' },
+    { cat: 'Marmaduke', owner: 'Ona' },
+    { cat: 'Tom', owner: 'Agota' },
+    { cat: 'Jerry', owner: 'Asta' },
+    { cat: 'Sylvester', owner: 'Vytas' }
+];
+
+catsAndOwners.forEach(item => {
+    console.log(item.owner);
+});
+const catsAndOwners1 = [
+    { cat: 'Fluffy', owner: 'Jonas', color: 'white'},
+    { cat: 'Garfield', owner: 'Petras', color: 'orange'},
+    { cat: 'Marmaduke', owner: 'Ona', color: 'black'},
+    { cat: 'Tom', owner: 'Agota', color: 'grey'},
+    { cat: 'Jerry', owner: 'Asta', color: 'grey'},
+    { cat: 'Sylvester', owner: 'Vytas', color: 'black'},
+];
+const pilkiKatinai = catsAndOwners1.filter(cat => cat.color === 'grey');
+console.table(pilkiKatinai)
+
+let newCatsAge = [...catsAndOwners];
+ 
+newCatsAge.map((animal) => (animal.age = rand(1, 18)));
+ 
+console.log(catsAndOwners);
+console.log(newCatsAge);
+
+const jauniKatinai = catsAndOwners1
+catsAndOwners1.sort((a, b) => a.age - b.age);
+console.log(jauniKatinai )
+;
