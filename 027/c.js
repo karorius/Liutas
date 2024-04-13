@@ -62,5 +62,3 @@ red.addEventListener('click', _ => {
 
 
 
-
-

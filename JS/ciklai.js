@@ -14,7 +14,7 @@ console.log(a, b, c);
  
 console.log('' + Math.min(a, b, c) + (a + b + c - Math.min(a, b, c) - Math.max(a, b, c)) + Math.max(a, b, c));
  
- 
+
 if (b >= a && b <= c) {
     console.log(a, b, c);
 } else if (b <= a && b >= c) {

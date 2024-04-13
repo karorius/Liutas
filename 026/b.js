@@ -105,5 +105,4 @@ const bin = document.querySelector('.bin');
 
 
 
-
 });
