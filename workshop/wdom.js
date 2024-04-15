@@ -1,5 +1,5 @@
 console.log('bandome is naujo');
-
+window.addEventListener('load', _ => {
 const count = document.querySelector('.count');
 const substract = document.querySelector('.substract');
 const reset = document.querySelector('.reset');
@@ -19,43 +19,43 @@ const buttons = document.querySelector('.buttons');
 //         count.innerHTML=0;
 //         setColor();
 //     }
-// })
+// });
 
 
 
 
 
-add.addEventListener('click',function(){
-    count.innerHTML++ 
-    // count.textContent++
-    // count.style.color = 'red'
+
+add.addEventListener('click',function () {
+    count.innerHTML++ ;
+
+//     // count.textContent++;
+//     // count.style.color = 'red';
 });
 
-const substractFunc = ()=> {
-    count.innerHTML--
+const substractFunc = () => {
+    count.innerHTML--;
 
-    // count.textContent--
-    // count.style.color = 'blue'
-}
+    // count.textContent-- ;
+    // count.style.color = 'blue';
+};
+substract.addEventListener('click',substractFunc);
 
 // substract.addEventListener('click',function(){
-//     count.innerHTML-- 
-// })
-
-
-substract.addEventListener('click',substractFunc)
+//     count.innerHTML-- ;
+// });
 
 reset.addEventListener('click',function () {
-    count.innerHTML = 0 
-})
+    count.innerHTML = 0 ;
+});
 
-const setColor =function () {
+const setColor = () => {
     if (count.innerHTML > 0) {
-        count.style.color='red';
+        count.style.color = 'yellow';
+    } else if (count.innerHTML < 0) {
+        count.style.color = 'blue';
+    } else {
+        count.style.color = 'white';
     }
-    else if (count.innerHTML < 0) {
-        count.style.color='blue'
-    }
-    else {count.style.color='white'}
-}
-  
+};
+});

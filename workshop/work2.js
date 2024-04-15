@@ -94,4 +94,23 @@ for(let i=0; i<string.length ; i++) {
   
 }
 
+// Atspausdinti elemento turinį pagal ID selektorių
+const element = document.querySelector('#contacts'); // Pavyzdžiui, pasirenkame elementą su ID "contacts"
+if (element) {
+    console.log(element.innerHTML); // Išspausdiname HTML turinį į konsolę
+} else {
+    console.log('Elementas su nurodytu ID nerastas'); // Pranešame, jei elemento su nurodytu ID nerandame
+}
+// Atspausdinti visus naujus žvėris iš sąrašų (<ul>) į konsolę
+const naujiZverysElements = document.querySelectorAll('li.new'); // Surinkti visus elementus su klase "new"
 
+naujiZverysElements.forEach(element => {
+    console.log(element.textContent); // Išspausdinti teksto turinį į konsolę
+});
+const tipai = document.querySelectorAll('h2'); // Pasirinkti visus h2 elementus
+
+tipai.forEach(tipas => {
+    if (!tipas.textContent.includes('Atsinaujinom')) { // Patikrinti, ar tekste nėra žodžio "Atsinaujinom"
+        console.log(tipas.textContent); // Išspausdinti tekstą
+    }
+});
