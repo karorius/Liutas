@@ -9,28 +9,31 @@ window.addEventListener('load', _ => {
     const animals = document.querySelectorAll('.test ul li');
 
 animals.forEach(a => console.log(a.innerText));
+console.log('------------------------');
+// surandame paskutini el ul tage
+const Lastli = document.querySelector('.test ul li:last-child');
 
-const ul = document.querySelector('.test ul li:last-child');
+Lastli.insertAdjacentHTML('afterend','<li> Bebras</li>')
+console.log(Lastli)
 
-ul.insertAdjacentHTML('afterend','<li> Bebras</li>')
+const animal = document.querySelectorAll('.test ul li');
 
-console.log(ul)
-// const animal = document.querySelectorAll('.test ul li');
-// animal.innerHTML = <li> Bebras2</li>
+animal.innerHTML = '<li> Bebras2</li>'
 
-// animals.forEach((a,i) => {
-//     if(i%2 ==0) {
-//         a.style.color = 'red';
-//     }else {
-//         a.style.color = 'blue';
-//     }
-// })
+animals.forEach((a,i) => {
+    if(i % 2 == 0) {
+        a.style.color = 'red';
+    }else {
+        a.style.color = 'blue';
+    }
+})
 
 // const animals3 = document.querySelector('.test ul li');
 // let textInside = 'uodega----'
+
 // animals3.innerText = textInside
 // animals3.forEach(a => {
-//     if(i%2 ==0) {
+//     if(i % 2 == 0) {
 //         animals3.innerText
 //     }
 //     return animals3
@@ -44,18 +47,18 @@ button.addEventListener('mouseenter',e => {
     console.log('opa',e.target);
 })
 
-red.addEventListener('click', _ => {
-    if (red.dataset.squareColor == 'blue') {
-        red.dataset.squareColor = 'red';
-        red.style.backgroundColor = '#dc143c66';
-        red.style.borderColor = '#dc143c';
-    } else {
-        red.dataset.squareColor = 'blue';
-        red.style.backgroundColor = '#87ceeb66';
-        red.style.borderColor = '#87ceeb';
-    }
+// red.addEventListener('click', _ => {
+//     if (red.dataset.squareColor == 'blue') {
+//         red.dataset.squareColor = 'red';
+//         red.style.backgroundColor = '#dc143c66';
+//         red.style.borderColor = '#dc143c';
+//     } else {
+//         red.dataset.squareColor = 'blue';
+//         red.style.backgroundColor = '#87ceeb66';
+//         red.style.borderColor = '#87ceeb';
+//     }
+// });
 
-});
 
 }); 
 

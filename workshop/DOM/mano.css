@@ -1,0 +1,26 @@
+.sk {
+    font-size: 20px;
+    margin-top: 20px;
+    height: 30px;
+    border: 2px solid red;
+    background-color: aqua;
+
+}
+.raid {
+    font-size: 20px;
+    margin-top: 20px;
+    height: 30px;
+    border: 2px solid blue;
+    background-color: yellow;
+}
+button {
+    width: 100px;
+     height: 30px;
+     border: none;
+     border: 2px solid black;
+     background-color: beige;
+     padding: 3px 8px;
+    font-size: 18px;
+    border-radius: 5px;
+
+}

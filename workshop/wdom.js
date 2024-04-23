@@ -8,15 +8,15 @@ const buttons = document.querySelector('.buttons');
 
 // buttons.addEventListener('click', function (e) {
 //     if (e.target.classList.contains('add')) {
-//         count.innerHTML++;
+//         parseInt(count.innerText)++;
 //         setColor();
 //     }
 //     else if (e.target.classList.contains('substract')) {
-//         count.innerHTML--;
+//         parseInt(count.innerText)--;
 //         setColor();
 //     }
 //     else if (e.target.classList.contains('reset')) {
-//         count.innerHTML=0;
+//         parseInt(count.innerText)=0;
 //         setColor();
 //     }
 // });
@@ -27,33 +27,37 @@ const buttons = document.querySelector('.buttons');
 
 
 add.addEventListener('click',function () {
-    count.innerHTML++ ;
-
+   let c = parseInt(count.innerText);
+c++;
+count.innerText = c;
+setColor();
 //     // count.textContent++;
 //     // count.style.color = 'red';
 });
 
 const substractFunc = () => {
-    count.innerHTML--;
-
-    // count.textContent-- ;
-    // count.style.color = 'blue';
+   let a = parseInt(count.innerText);
+a--;
+count.innerText = a;
+setColor ();
 };
+
 substract.addEventListener('click',substractFunc);
 
 // substract.addEventListener('click',function(){
-//     count.innerHTML-- ;
+//     parseInt(count.innerText)-- ;
 // });
 
 reset.addEventListener('click',function () {
-    count.innerHTML = 0 ;
+    count.innerText = 0 ;
+    setColor ();
 });
 
 const setColor = () => {
-    if (count.innerHTML > 0) {
+    if (parseInt(count.innerText) > 0) {
         count.style.color = 'yellow';
-    } else if (count.innerHTML < 0) {
-        count.style.color = 'blue';
+    } else if (parseInt(count.innerText) < 0) {
+        count.style.color = 'red';
     } else {
         count.style.color = 'white';
     }
