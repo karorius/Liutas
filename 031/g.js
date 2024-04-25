@@ -6,9 +6,9 @@ function rand(min, max) {
 }
 
 
-const africa = ['Zebras', 'Liūtas',  '', 'Raganosis', '','Raganosis', 'Begemotas'];
-const australia = ['Kengūra', 'Ančiasnapis', 'Dingo', 'Atsirado'];
-window.addEventListener('load', _ => {
+// const africa = ['Zebras', 'Liūtas',  '', 'Raganosis', '','Raganosis', 'Begemotas'];
+// const australia = ['Kengūra', 'Ančiasnapis', 'Dingo', 'Atsirado'];
+// window.addEventListener('load', _ => {
 // const h2 = document.querySelector('body');
 // h2.innerHTML = `<h2></h2>
 //                 <h2></h2>
@@ -21,6 +21,8 @@ window.addEventListener('load', _ => {
 //     h2.innerText = sk;
 //     console.log(h2);
 //  })          
+
+
 
 // const input =document.querySelector('body');
 // input.innerHTML = '<input type="text">';
@@ -54,30 +56,33 @@ window.addEventListener('load', _ => {
 //     if (r1 == r2)
 //     {}
 // })
-console.log('________________')
-const c1 = 'Antis';
-const c2 = 200;
-const c3 = {
-    a:'Antis',
-    w: 200
-};
-
-const zoo = document.querySelector('.zoo');
-zoo.dataset.a1 = c1;
-zoo.dataset.a2 = c2;
-zoo.dataset.a3 = JSON.stringify(c3);
-
-const readC1 = zoo.dataset.a1;
-const readC2 = zoo.dataset.a2;
-const readC3 = JSON.stringify(c3);
 
 
 
-console.log(readC1, typeof readC1);
-console.log(readC2, typeof readC2);
-console.log(readC3, typeof readC3);
+// console.log('________________')
+// const c1 = 'Antis';
+// const c2 = 200;
+// const c3 = {
+//     a:'Antis',
+//     w: 200
+// };
 
-console.log('_____________________')
+// const zoo = document.querySelector('.zoo');
+// zoo.dataset.a1 = c1;
+// zoo.dataset.a2 = c2;
+// zoo.dataset.a3 = JSON.stringify(c3);
+
+// const readC1 = zoo.dataset.a1;
+// const readC2 = zoo.dataset.a2;
+// const readC3 = JSON.stringify(c3);
+
+
+
+// console.log(readC1, typeof readC1);
+// console.log(readC2, typeof readC2);
+// console.log(readC3, typeof readC3);
+
+// console.log('_____________________')
 
 // const animal1 = 'Antis';
 //     const animal2 = 200;
@@ -101,11 +106,85 @@ console.log('_____________________')
 //     console.log(readAnimal2, typeof readAnimal2);
 //     console.log(readAnimal3, typeof readAnimal3);
 
+// });
+
+const h1 = document.querySelector('h1');
+    const addInput = document.querySelector('input.add');
+    const addButton = document.querySelector('button.add');
+    const delButton = document.querySelector('button.del');
+
+    if (localStorage.getItem('myH1') !== null) {
+        h1.innerText = localStorage.getItem('myH1'); // jeigu nera grazina null
+    }
+    
+
+    console.log(JSON.parse(localStorage.getItem('arrayGood')));
+
+    console.log(JSON.parse(localStorage.getItem('d2')));
+    
 
 
+    addButton.addEventListener('click', _ => {
+
+        const addValue = addInput.value;
+
+        localStorage.setItem('myH1', addValue);
+
+        localStorage.setItem('array', [1,2,3]);
+
+        localStorage.setItem('arrayGood', JSON.stringify([1,2,3]));
+
+        const d = '400';
+
+        localStorage.setItem('d', d);
+
+        localStorage.setItem('d2', JSON.stringify(d));
+
+        h1.innerText = addValue;
+
+    });
+
+    delButton.addEventListener('click', _ => {
+
+        localStorage.removeItem('myH1');
+
+        h1.innerText = '---';
+
+    });
+
+    // pasirinkus spalvą ir perkrovus puslapį spalva turi pasilikti pasirinkta.
 
 
+    const color = document.querySelector('.color');
+
+    if (localStorage.getItem('color') !== null) {
+        color.value = localStorage.getItem('color');
+    }
+
+    color.addEventListener('change', _ => {
+        localStorage.setItem('color', color.value);
+    });
 
 
+    let from = 10;
+    let timerId;
+    const h5 = document.querySelector('h5');
+    const go = document.querySelector('.timer');
 
-});
+    h5.innerText = from;
+
+    go.addEventListener('click', _ => {
+
+        if (from <= 0) return;
+
+        clearInterval(timerId);
+
+        timerId = setInterval(_ => {
+            from--;
+            if (from <= 0) {
+                clearInterval(timerId);
+            }
+            h5.innerText = from;
+        }, 100);
+
+    });

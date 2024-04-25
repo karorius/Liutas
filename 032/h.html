@@ -8,43 +8,96 @@
     <title>CRUD</title>
 </head>
 <body>
-    <!-- <h1>Crud</h1>
+    <h1>Crud</h1>
 
-    <div><b>create</b> <span>Tuscios formos rodymas</span></div>
-    <div><b>Store</b> <span>Informacijos issaugojimas</span></div>
-    <div><b>Edit</b> <span>Uzpildytos formos rodymas</span> <i>id</i></div>
-    <div><b>Update</b> <span>Senos informacijos perrasymas</span> <i>id</i></div>
-    <div><b>delete</b> <span>Trynimo patvirtinimo rodymas</span> <i>id</i></div>
-    <div><b>Destroy</b> <span>Informacijos istrynimas</span> <i>id</i></div>
-    <div><b>Read</b> <span>Visos informacijos atvaizdavima</span></div>
-    <div><b>Show</b> <span>Dalies informacijos atvaizdavimas</span> <i>id</i></div> -->
+    <div><b>create</b> <b>Get</b> <span>Tuscios formos rodymas</span></div>
+    <div><b>Store</b> <b>Post</b><span>Informacijos issaugojimas</span></div>
+    <div><b>Edit</b> <b>Get</b> <span>Uzpildytos formos rodymas</span> <i>id</i></div>
+    <div><b>Update</b> <b>PUT</b><span>Senos informacijos perrasymas</span> <i>id</i></div>
+    <div><b>delete</b> <b>Get</b><span>Trynimo patvirtinimo rodymas</span> <i>id</i></div>
+    <div><b>Destroy</b> <b>Delete</b><span>Informacijos istrynimas</span> <i>id</i></div>
+    <div><b>Read</b> <b>Get</b> <span>Visos informacijos atvaizdavima</span></div>
+    <div><b>Show</b> <b>Get</b><span>Dalies informacijos atvaizdavimas</span> <i>id</i></div>
 
     <main>
 
-        <div class="modal">
-            <div class="card">
-                <h2>Create</h2>
-                <div class="input">
-                    <div>Product Title</div>
-                    <input type="text" name="productTitle">
+        <main>
+
+            <div class="products-container">
+    
+                <div class="products">
+                    <div class="buttons">
+                        <button type="button" class="green --create">Create</button>
+                        <div class="seed">seed local storage</div>
+                    </div>
+                    <div class="list --list">
+                        <div class="loading">Loading...</div>
+                    </div>
+                    
                 </div>
-                <div class="input">
-                    <div>Product Price</div>
-                    <input type="text" name="productPrice">
-                </div>
-                <div class="input">
-                    <div>Product Description</div>
-                    <textarea name="productDesc"></textarea>
-                </div>
-                <div class="buttons">
-                    <button type="button" class="green">Add</button>
-                    <button type="button" class="gray">Cancel</button>
-                </div>
-            
+    
             </div>
-        </div>
-
-    </main>
-
+    
+    
+    
+    
+    
+            <div class="modal modal--create --modal">
+                <div class="card">
+                    <h2>Create</h2>
+                    <div class="input">
+                        <div>Product Title</div>
+                        <input type="text" name="productTitle">
+                    </div>
+                    <div class="input">
+                        <div>Product Price</div>
+                        <input type="text" name="productPrice">
+                    </div>
+                    <div class="input">
+                        <div>Product Description</div>
+                        <textarea name="productDesc"></textarea>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="green --submit">Save</button>
+                        <button type="button" class="gray --close">Cancel</button>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="modal modal--delete --modal">
+                <div class="card">
+                    <h2>Delete</h2>
+                    <h2>Are you sure to delete <span class="product--title"></span>?</h2>
+                    <div class="buttons">
+                        <button type="button" class="green --submit">Yes</button>
+                        <button type="button" class="gray --close">Cancel</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal modal--edit --modal">
+                <div class="card">
+                    <h2>Edit</h2>
+                    <div class="input">
+                        <div>Product Title</div>
+                        <input type="text" name="productTitle">
+                    </div>
+                    <div class="input">
+                        <div>Product Price</div>
+                        <input type="text" name="productPrice">
+                    </div>
+                    <div class="input">
+                        <div>Product Description</div>
+                        <textarea name="productDesc"></textarea>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="green --submit">Save</button>
+                        <button type="button" class="gray --close">Cancel</button>
+                    </div>
+                </div>
+            </div>
+    
+        </main>
 </body>
 </html>

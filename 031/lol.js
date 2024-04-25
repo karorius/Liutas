@@ -41,4 +41,39 @@ colors.forEach(c => {
     selecthtml += '<option '
 })
 
-    
+// function doSomethingAsync(callback) {
+//     setTimeout(() => {
+//         callback('Operation completed');
+//     }, 2000);
+// }
+
+// console.log('Start');
+// doSomethingAsync((result) => {
+//     console.log(result);
+// });
+// console.log('End');  
+
+function doSomethingAsync() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Operation completed');
+        }, 2000);
+    });
+}
+
+console.log('Start');
+doSomethingAsync()
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+console.log('End');
+// Surandame mygtuko elementą pagal ID
+const myButton = document.getElementById('myButton');
+
+// Pridedame įvykių klausytoją paspaudimui
+myButton.addEventListener('click', function(event) {
+    console.log('My button was clicked!'); // Veiksmai, kurie įvyksta paspaudus mygtuką
+});
