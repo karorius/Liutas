@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="http://127.0.0.1:5500/workshop/Projektas/pr1.js" defer></script>
+   <link rel="stylesheet" href="http://127.0.0.1:5500/workshop/Projektas/pr1.css">
+    <title>Document</title>
+</head>
+<body>
+    <H1>BANKO VARTOTOJŲ SĄSKAITOS</H1>
+
+    <h2>Valiutu skaiciuokle </h2>
+
+    <form id="userForm">
+        <input type="text" id="nameInput" placeholder="Pavadinimas" required>
+        <input type="number" id="rateInput" placeholder="saskaita" >
+        <button type="submit">prideti vartotoja</button>
+    </form>
+
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Pavadinimas</th>
+                <th>Kursas</th>
+                <th>Veiksmai</th>
+            </tr>
+        </thead>
+        <tbody id="userList">
+            <!-- Čia bus dinamiškai įterpiami valiutų įrašai -->
+        </tbody>
+    </table>
+</body>
+</html>
