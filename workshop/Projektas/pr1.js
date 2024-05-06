@@ -1,69 +1,111 @@
-let currencies = [];
+document.addEventListener('DOMContentLoaded', () => {
+    const accountList = document.getElementById('accountList');
+    const naujaSaskaita = document.getElementById('naujaSaskaita');
+    const naujoVartotojoModalas = document.getElementById('naujoVartotojoModalas');
+    const sukurtiVartotoja = document.getElementById('sukurtiVartotoja');
+    const transactionModal = document.getElementById('transactionModal');
+    const withdrawAmount = document.getElementById('withdrawAmount');
+    const withdrawBtn = document.getElementById('withdrawBtn');
+    const depositModal = document.getElementById('depositModal');
+    const depositAmount = document.getElementById('depositAmount');
+    const depositBtn = document.getElementById('depositBtn');
 
-// Funkcija, kuri atnaujina valiutų sąrašą lentelėje
-function renderUsers() {
-    const userList = document.getElementById('userList');
-    userList.innerHTML = ''; // Išvalome turinį
+    let accounts = JSON.parse(localStorage.getItem('bankAccounts')) || [];
 
-    User.forEach((user, index) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${user.name}</td>
-            <td>${user.rate}</td>
-            <td>
-                <button onclick="edituser(${index})">Redaguoti</button>
-                <button onclick="deleteuser(${index})">Trinti</button>
-            </td>
-        `;
-        userList.appendChild(row);
+    function renderAccounts() {
+        accountList.innerHTML = '';
+        accounts.sort((a, b) => a.lastName.localeCompare(b.lastName));
+        accounts.forEach(account => {
+            const accountItem = document.createElement('div');
+            accountItem.innerHTML = `
+                <div>${account.firstName} ${account.lastName} - ${account.balance} €</div>
+                <button onclick="deleteAccount('${account.firstName}', '${account.lastName}')">Ištrinti</button>
+                <button onclick="openWithdrawModal('${account.firstName}', '${account.lastName}')">Nuskaičiuoti lėšas</button>
+                <button onclick="openDepositModal('${account.firstName}', '${account.lastName}')">Pridėti lėšų</button>
+            `;
+            accountList.appendChild(accountItem);
+        });
+    }
+
+    function saveAccounts() {
+        localStorage.setItem('bankAccounts', JSON.stringify(accounts));
+    }
+
+    function deleteAccount(firstName, lastName) {
+        accounts = accounts.filter(account => !(account.firstName === firstName && account.lastName === lastName));
+        saveAccounts();
+        renderAccounts();
+    }
+
+    function openWithdrawModal(firstName, lastName) {
+        withdrawBtn.onclick = () => {
+            const amount = parseFloat(withdrawAmount.value);
+            const account = accounts.find(acc => acc.firstName === firstName && acc.lastName === lastName);
+            if (amount > 0 && account && account.balance >= amount) {
+                account.balance -= amount;
+                saveAccounts();
+                renderAccounts();
+                alert(`Nuskaitytos ${amount} € iš sąskaitos ${firstName} ${lastName}`);
+                transactionModal.style.display = 'none';
+            } else {
+                alert('Netinkama suma arba nepakankamas likutis!');
+            }
+        };
+        transactionModal.style.display = 'block';
+    }
+
+    function openDepositModal(firstName, lastName) {
+        depositBtn.onclick = () => {
+            const amount = parseFloat(depositAmount.value);
+            const account = accounts.find(acc => acc.firstName === firstName && acc.lastName === lastName);
+            if (amount > 0) {
+                account.balance += amount;
+                saveAccounts();
+                renderAccounts();
+                alert(`Pridėta ${amount} € į sąskaitą ${firstName} ${lastName}`);
+                depositModal.style.display = 'none';
+            } else {
+                alert('Netinkama suma!');
+            }
+        };
+        depositModal.style.display = 'block';
+    }
+
+    naujaSaskaita.onclick = () => {
+        naujoVartotojoModalas.style.display = 'block';
+    };
+
+    sukurtiVartotoja.onclick = () => {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        if (firstName && lastName) {
+            const newAccount = {
+                firstName,
+                lastName,
+                balance: 0
+            };
+            accounts.push(newAccount);
+            saveAccounts();
+            renderAccounts();
+            alert(`Sukurta nauja sąskaita: ${firstName} ${lastName}`);
+            naujoVartotojoModalas.style.display = 'none';
+        } else {
+            alert('Įveskite vardą ir pavardę!');
+        }
+    };
+
+    // Uždaryti modalus paspaudus "x" arba už modalo ribų
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        const closeBtn = modal.querySelector('.close');
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal || event.target === closeBtn) {
+                modal.style.display = 'none';
+            }
+        });
     });
-}
 
-// Funkcija prideda naują valiutą į sąrašą
-function adduser(name, rate) {
-    currencies.push({ name, rate });
-    renderUsers();
-}
-
-// Funkcija redaguoja esamą valiutą
-function edituser(index) {
-    const newName = prompt('Įveskite naują pavadinimą:');
-    const newRate = parseFloat(prompt('Įveskite naują kursą:'));
-/* validuojame kad negautume nan */
-    if (newName && !isNaN(newRate)) {
-        currencies[index].name = newName;
-        currencies[index].rate = newRate;
-        renderUsers();
-    } else {
-        alert('Neteisingai įvesti duomenys!');
-    }
-}
-
-// Funkcija šalina valiutą iš sąrašo
-function deleteuser(index) {
-    currencies.splice(index, 1);
-    renderUsers();
-}
-
-// Event listener formos pateikimui
-const form = document.getElementById('userForm');
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Sustabdome formos numatytąjį elgesį
-
-    const nameInput = document.getElementById('nameInput').value;
-    const rateInput = parseFloat(document.getElementById('rateInput').value);
-/* vel validuojame kad ivesta reiksme butu teisinga*/
-    if (nameInput && !isNaN(rateInput)) {
-        adduser(nameInput, rateInput);
-        form.reset(); // Išvalome formą
-    } else {
-        alert('Užpildykite visus laukus teisingai!');
-    }
+    // Pradinis sąrašo atvaizdavimas
+    renderAccounts();
 });
-
-// Pradinis valiutų sąrašas (testavimui)
-adduser('Petras Valaitis', 1);
-adduser('Naglis Valiukas', 1.20);
-adduser('Giedrius Puteikis', 0.85);
-
-
+        

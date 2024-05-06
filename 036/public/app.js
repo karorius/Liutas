@@ -1,15 +1,30 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
   \********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('load', function (_) {
   var h1 = document.querySelector('h1');
   h1.style.letterSpacing = '20px';
+});
+window.addEventListener('load', function (_) {
+  var name = document.querySelector('[name = name]');
+  var surname = document.querySelector('[name = surname]');
+  var button = document.querySelector('button');
+  button.addEventListener('click', function (_) {
+    var data = {
+      name: name.value,
+      surname: surname.value
+    };
+    console.log(data);
+  });
 });
 
 /***/ }),
@@ -20,7 +35,6 @@ window.addEventListener('load', function (_) {
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 

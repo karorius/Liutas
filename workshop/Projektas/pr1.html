@@ -10,25 +10,37 @@
 <body>
     <H1>BANKO VARTOTOJŲ SĄSKAITOS</H1>
 
-    <h2>Valiutu skaiciuokle </h2>
+    <div class="container">
+        <h1> Bankas </h1>
+        <button id="naujaSaskaita">Nauja sąskaita</button>
+        <div id="accountList"></div>
+    </div>
 
-    <form id="userForm">
-        <input type="text" id="nameInput" placeholder="Pavadinimas" required>
-        <input type="number" id="rateInput" placeholder="saskaita" >
-        <button type="submit">prideti vartotoja</button>
-    </form>
+    <div id="naujoVartotojoModalas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sukurti naują sąskaitą</h2>
+            <input type="text" id="firstName" placeholder="Vardas">
+            <input type="text" id="lastName" placeholder="Pavardė">
+            <button id="sukurtiVartotoja">Sukurti</button>
+        </div>
+    </div>
 
-    <table id="userTable">
-        <thead>
-            <tr>
-                <th>Pavadinimas</th>
-                <th>Kursas</th>
-                <th>Veiksmai</th>
-            </tr>
-        </thead>
-        <tbody id="userList">
-            <!-- Čia bus dinamiškai įterpiami valiutų įrašai -->
-        </tbody>
-    </table>
-</body>
+    <div id="transactionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nuskaityti lėšas</h2>
+            <input type="number" id="withdrawAmount" placeholder="Suma">
+            <button id="withdrawBtn">Nuskaičiuoti</button>
+        </div>
+    </div>
+
+    <div id="depositModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Pridėti lėšų</h2>
+            <input type="number" id="depositAmount" placeholder="Suma">
+            <button id="depositBtn">Pridėti</button>
+        </div>
+    </div>
 </html>

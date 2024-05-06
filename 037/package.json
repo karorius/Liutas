@@ -1,19 +1,19 @@
 {
-  "name": "kuku",
+  "name": "037",
   "version": "1.0.0",
-  "description": "very nice kuku",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
+    "start": "node --watch index.js",
     "dev": "npx mix watch"
   },
-  "author": "Me",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "axios": "^1.6.8",
-    "express": "^4.19.2",
-    "nodemon": "^3.1.0"
+    "express": "^4.19.2"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.49"
