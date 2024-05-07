@@ -10,6 +10,7 @@ window.addEventListener('load', _ => {
     const h2 = document.querySelector('h2');
     const button1 = document.querySelector('#params');
     const button2 = document.querySelector('#query');
+    const button3 = document.querySelector('#body');
  
     button1.addEventListener('click', _ => {
         const data = {
@@ -33,7 +34,7 @@ window.addEventListener('load', _ => {
             surname: surname.value
         }
  
-        axios.get(`http://localhost/params?n=${data.name}&s=${data.surname}`)
+        axios.get(`http://localhost/query?n=${data.name}&s=${data.surname}`)
         .then(res => {
             console.log(res.data);
             h2.innerText = res.data.got.name + ' ' + res.data.got.surname;
@@ -43,6 +44,23 @@ window.addEventListener('load', _ => {
         });
  
     });
+    button3.addEventListener('click', _ => {
+        const data = {
+            name: name.value,
+            surname: surname.value
+        }
+
+        axios.post('http://localhost/body', data)
+        .then(res => {
+            console.log(res.data);
+            h2.innerText = res.data.got.name + ' ' + res.data.got.surname;
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+    });
+
 });
 
 

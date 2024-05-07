@@ -6314,6 +6314,7 @@ window.addEventListener('load', function (_) {
   var h2 = document.querySelector('h2');
   var button1 = document.querySelector('#params');
   var button2 = document.querySelector('#query');
+  var button3 = document.querySelector('#body');
   button1.addEventListener('click', function (_) {
     var data = {
       name: name.value,
@@ -6331,7 +6332,19 @@ window.addEventListener('load', function (_) {
       name: name.value,
       surname: surname.value
     };
-    axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("http://localhost/params?n=".concat(data.name, "&s=").concat(data.surname)).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("http://localhost/query?n=".concat(data.name, "&s=").concat(data.surname)).then(function (res) {
+      console.log(res.data);
+      h2.innerText = res.data.got.name + ' ' + res.data.got.surname;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  });
+  button3.addEventListener('click', function (_) {
+    var data = {
+      name: name.value,
+      surname: surname.value
+    };
+    axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('http://localhost/body', data).then(function (res) {
       console.log(res.data);
       h2.innerText = res.data.got.name + ' ' + res.data.got.surname;
     })["catch"](function (error) {
