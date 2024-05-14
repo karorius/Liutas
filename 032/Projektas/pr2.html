@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://127.0.0.1:5500/032/Projektas/pr2.css" >
+   <script src="http://127.0.0.1:5500/032/Projektas/pr2.js" defer></script>
+    <title>Banko puslapis</title>
+</head>
+<body>
+    <h1>Sąskaitų sąrašas</h1>
+    <ul id="saskaitu-sarasas"></ul>
+
+    <button id="nauja-saskaita">Nauja sąskaita</button>
+
+    <!-- Modalas naujos sąskaitos sukūrimui -->
+    <div id="nauja-saskaita-modal" style="display: none;">
+        <input type="text" id="vardas" placeholder="Vardas">
+        <input type="text" id="pavarde" placeholder="Pavardė">
+        <button id="sukurti-saskaita">Sukurti</button>
+        <button id="atsaukti-sukurima">Atšaukti</button>
+    </div>
+
+    <!-- Modalas lėšų pridėjimui -->
+    <div id="prideti-lesu-modal" style="display: none;">
+        <input type="number" id="prideti-suma" placeholder="Pridėti sumą">
+        <button id="prideti-lesas">Pridėti</button>
+        <button id="atsaukti-prideti-lesas">Atšaukti</button>
+    </div>
+
+    <!-- Modalas lėšų nuskaitymui -->
+    <div id="nuskaityti-lesu-modal" style="display: none;">
+        <input type="number" id="nuskaityti-suma" placeholder="Nuskaityti sumą">
+        <button id="nuskaityti-lesas">Nuskaityti</button>
+        <button id="atsaukti-nuskaityti-lesas">Atšaukti</button

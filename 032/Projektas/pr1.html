@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="http://127.0.0.1:5500/032/Projektas/pr1.js" defer></script>
+   <link rel="stylesheet" href="http://127.0.0.1:5500/032/Projektas/pr1.css">
+    <title>Document</title>
+</head>
+<body>
+    <H1>BANKO VARTOTOJŲ SĄSKAITOS</H1>
+
+    <div class="container">
+        <h1> Bankas </h1>
+        <button id="naujaSaskaita">Nauja sąskaita</button>
+        <div id="accountList"></div>
+    </div>
+
+    <div id="naujoVartotojoModalas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sukurti naują sąskaitą</h2>
+            <input type="text" id="firstName" placeholder="Vardas">
+            <input type="text" id="lastName" placeholder="Pavardė">
+            <button id="sukurtiVartotoja">Sukurti</button>
+        </div>
+    </div>
+
+    <div id="transactionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nuskaityti lėšas</h2>
+            <input type="number" id="withdrawAmount" placeholder="Suma">
+            <button id="withdrawBtn">Nuskaičiuoti</button>
+        </div>
+    </div>
+
+    <div id="depositModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Pridėti lėšų</h2>
+            <input type="number" id="depositAmount" placeholder="Suma">
+            <button id="depositBtn">Pridėti</button>
+        </div>
+    </div>
+</html>
