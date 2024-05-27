@@ -16,14 +16,20 @@ const fs = require('node:fs');
 const addNav = (id, html) => {
     let nav = fs.readFileSync('./data/nav.html', 'utf8');
     let userHtml;
-    if (!isLogged(id)) {
+    let data = fs.readFileSync('./data/sessions.json', 'utf8');
+    data = JSON.parse(data);
+    const session = data.find(s => s.id === id);
+    if (!session || !session.d?.user) {
         userHtml = fs.readFileSync('./data/navAnon.html', 'utf8');
+        userHtml = userHtml.replace('{{NAME}}', 'no name');
     } else {
         userHtml = fs.readFileSync('./data/navUser.html', 'utf8');
+        userHtml = userHtml.replace('{{NAME}}', session.d.user);
     }
     nav = nav.replace('{{USER}}', userHtml);
     return html.replace('{{NAV}}', nav);
 }
+
 
 
 const addMessage = (id, text, type) => {
@@ -60,6 +66,18 @@ const loginUser = (id, user) => {
     fs.writeFileSync('./data/sessions.json', data);
 }
 
+const logoutUser = id => {
+    let data = fs.readFileSync('./data/sessions.json', 'utf8');
+    data = JSON.parse(data);
+    const session = data.find(s => s.id === id);
+    if (session && session.d?.user) {
+        delete session.d.user;
+        data = JSON.stringify(data);
+        fs.writeFileSync('./data/sessions.json', data);
+    }
+}
+
+
 const isLogged = id => {
     let data = fs.readFileSync('./data/sessions.json', 'utf8');
     data = JSON.parse(data);
@@ -70,6 +88,7 @@ const isLogged = id => {
     return true;
 }
 
+// Session middleware
 app.use((req, res, next) => {
     const id = req.cookies.COLORS || '';
     let data = fs.readFileSync('./data/sessions.json', 'utf8');
@@ -95,15 +114,16 @@ app.use((req, res, next) => {
             res.cookie('COLORS', id, { maxAge: 24 * 60 * 60 * 1000 });
         }
     }
-    next()
+    next();
 });
 
 app.get('/', (req, res) => {
     let html = fs.readFileSync('./data/home.html', 'utf8');
-    const nav = fs.readFileSync('./data/nav.html', 'utf8');
-    html = html.replace('{{NAV}}', nav).replace('{{MSG}}', showMessage(req.sessionsId));
+    html = html.replace('{{MSG}}', showMessage(req.sessionsId));
+    html = addNav(req.sessionsId, html);
     res.send(html);
 });
+
 
 
 app.get('/colors', (req, res) => {
@@ -111,6 +131,7 @@ app.get('/colors', (req, res) => {
     if (!isLogged(req.sessionsId)) {
         res.redirect(302, 'http://colors.test/login').end();
     }
+
 
     let html = fs.readFileSync('./data/index.html', 'utf8');
     const listItem = fs.readFileSync('./data/listItem.html', 'utf8');
@@ -135,8 +156,7 @@ app.get('/create', (req, res) => {
     }
 
     let html = fs.readFileSync('./data/create.html', 'utf8');
-    const nav = fs.readFileSync('./data/nav.html', 'utf8');
-    html = html.replace('{{NAV}}', nav);
+    html = addNav(req.sessionsId, html);
     res.send(html);
 });
 
@@ -176,8 +196,8 @@ app.get('/delete/:id', (req, res) => {
         res.status(404).send(html);
     } else {
         let html = fs.readFileSync('./data/delete.html', 'utf8');
-        const nav = fs.readFileSync('./data/nav.html', 'utf8');
-        html = html.replace('{{NAV}}', nav).replace('{{ID}}', color.id).replace('{{SHAPE}}', color.shape).replace('COLOR', color.color);
+        html = html.replace('{{ID}}', color.id).replace('{{SHAPE}}', color.shape).replace('COLOR', color.color);
+        html = addNav(req.sessionsId, html);
         res.send(html);
     }
 });
@@ -215,8 +235,7 @@ app.get('/edit/:id', (req, res) => {
         res.status(404).send(html);
     } else {
         let html = fs.readFileSync('./data/edit.html', 'utf8');
-        const nav = fs.readFileSync('./data/nav.html', 'utf8');
-        html = html.replace('{{NAV}}', nav).replace('{{ID}}', color.id).replace('{{SHAPE}}', color.shape).replaceAll('COLOR', color.color);
+        html = html.replace('{{ID}}', color.id).replace('{{SHAPE}}', color.shape).replaceAll('COLOR', color.color);
         [1, 2, 3].forEach(v => {
             if (v = color.shape) {
                 html = html.replace(`{{VAL${v}}}`, 'checked');
@@ -224,6 +243,7 @@ app.get('/edit/:id', (req, res) => {
                 html = html.replace(`{{VAL${v}}}`, '');
             }
         });
+        html = addNav(req.sessionsId, html);
         res.send(html);
     }
 });
@@ -271,8 +291,8 @@ app.get('/register', (req, res) => {
     }
 
     let html = fs.readFileSync('./data/register.html', 'utf8');
-    const nav = fs.readFileSync('./data/nav.html', 'utf8');
-    html = html.replace('{{NAV}}', nav).replace('{{MSG}}', showMessage(req.sessionsId));
+    html = html.replace('{{MSG}}', showMessage(req.sessionsId));
+    html = addNav(req.sessionsId, html);
     res.send(html);
 });
 
@@ -280,6 +300,11 @@ app.post('/register', (req, res) => {
 
     if (isLogged(req.sessionsId)) {
         res.redirect(302, 'http://colors.test/').end();
+    }
+
+    if (req.body.password.length < 3) {
+        addMessage(req.sessionsId, 'Password is too short', 'danger');
+        res.redirect(302, 'http://colors.test/register').end();
     }
 
     const email = req.body.email;
@@ -302,6 +327,7 @@ app.get('/login', (req, res) => {
         res.redirect(302, 'http://colors.test/').end();
     }
 
+
     let html = fs.readFileSync('./data/login.html', 'utf8');
     html = html.replace('{{MSG}}', showMessage(req.sessionsId));
     res.send(html);
@@ -317,22 +343,25 @@ app.post('/login', (req, res) => {
     const password = md5(req.body.password);
     let data = fs.readFileSync('./data/users.json', 'utf8');
     data = JSON.parse(data);
-
     const user = data.find(u => u.email === email && u.password === password);
-
     if (user) {
-
         loginUser(req.sessionsId, user);
         addMessage(req.sessionsId, 'You are logged succesfully', 'success');
         res.redirect(302, 'http://colors.test');
-
     } else {
-
         addMessage(req.sessionsId, 'Invalid password or email', 'danger');
         res.redirect(302, 'http://colors.test/login');
     }
+});
 
+app.post('/logout', (req, res) => {
 
+    if (!isLogged(req.sessionsId)) {
+        res.redirect(302, 'http://colors.test/').end();
+    }
+
+    logoutUser(req.sessionsId);
+    res.redirect(302, 'http://colors.test/');
 });
 
 
