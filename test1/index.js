@@ -1,12 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { v4: uuidv4 } = require('uuid');
 const app = express();
 const port = 80;
 
-
+app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
 const fs = require('node:fs');
 
 const animalZoo = [
@@ -28,8 +26,7 @@ const animalZoo = [
 ];
 
 
-
-app.get('/', (_, res) => {
+app.get('/', (req, res) => {
     
     fs.writeFileSync('./data/animals.json', JSON.stringify(animalZoo))
     const listItem = fs.readFileSync('./data/listItem.html', 'utf8');
@@ -51,12 +48,6 @@ app.get('/', (_, res) => {
     
     res.send(html);
 });
-
-
-
-
-
-
 
 
 app.listen(port, _ => {

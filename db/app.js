@@ -50,7 +50,47 @@ app.get('/', (req, res) => {
     })
 
 });
+app.post('/plant', (req, res) => {
 
+    const { name, height, type } = req.body;
+
+    //  INSERT INTO table_name (column1, column2, column3, ...)
+    //  VALUES (value1, value2, value3, ...);
+
+    const sql = `
+        INSERT INTO trees (name, height, type)
+        VALUES ( '${name}', ${parseFloat(height)}, '${type}' )
+    `;
+
+    connection.query(sql, err => {
+        if (err) throw err;
+        res.redirect(302, 'http://localhost:8080/');
+    });
+});
+
+app.post('/cut', (req, res) => {
+
+    const id = req.body.id;
+
+    // DELETE FROM table_name WHERE condition;
+
+    // DELETE FROM trees WHERE id = 888 OR 1
+
+//     const sql = `
+//     DELETE FROM trees
+//     WHERE id = ${id}
+
+// `;
+const sql = `
+DELETE FROM trees
+WHERE id = ?
+`;
+    connection.query(sql,[id], err => {
+        if (err) throw err;
+        res.redirect(302, 'http://localhost:8080/');
+    });
+
+});
 
 app.listen(port, _ => {
     console.log(`Trees manager are listening on port ${port}`);
