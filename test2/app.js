@@ -28,6 +28,7 @@ app.get('/',(req,res) =>{
     const sql = `
     SELECT id, name, age, type
     FROM animals
+    WHERE age > 10
     `;
     connection.query(sql, (err,rows) => {
         if (err) throw err
@@ -48,11 +49,56 @@ app.get('/',(req,res) =>{
     });
 });
 
+app.post('/create', (req, res) => {
 
+    const { name, age, type } = req.body;
 
+  
 
+    // const sql = `
+    //     INSERT INTO trees (name, height, type)
+    //     VALUES ( '${name}', ${parseFloat(height)}, '${type}' )
+    // `;
 
+    const sql = `
+    INSERT INTO animals (name, age, type)
+    VALUES ( ?, ?, ? )
+`;
+    connection.query(sql, [name, parseFloat(age), type], err => {
+        if (err) throw err;
+        res.redirect(302, 'http://localhost:8080/');
+    });
+});
 
+app.post('/cut', (req, res) => {
+
+    const id = req.body.id;
+    const sql = `
+    DELETE FROM animals
+    WHERE id = ${id}
+    `;
+    connection.query(sql, (err) => {
+        if (err) throw err;
+
+        res.redirect(302, 'http://localhost:8080/');
+    });
+})
+
+app.post('/grow', (req, res) => {
+
+    const { id, age } = req.body;
+
+       const sql = `
+    UPDATE animals
+    SET age = ?
+    WHERE id = ?
+`;
+    connection.query(sql, [parseFloat(age), id], err => {
+        if (err) throw err;
+        res.redirect(302, 'http://localhost:8080/');
+    });
+
+});
 
 
 
