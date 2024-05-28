@@ -25,16 +25,28 @@ app.get('/',(req,res) =>{
 
     let html = fs.readFileSync('./data/index.html', 'utf8');
     const listItem = fs.readFileSync('./data/listItem.html', 'utf8'); 
-    // const sql = `
-    
-    // `;
-    // connection.query(sql, (err,rows) => {
-    //     if (err) throw err
+    const sql = `
+    SELECT id, name, age, type
+    FROM animals
+    `;
+    connection.query(sql, (err,rows) => {
+        if (err) throw err
 
-    //     console.log('Answer', rows);
-    // })
-    res.send(html);
-})
+        console.log('Answer', rows);
+        let listItems = '';
+        rows.forEach(animal => {
+            let liHtml = listItem;
+            liHtml = liHtml
+                .replace('{{ID}}', animal.id)
+                .replace('{{NAME}}', animal.name)
+                .replace('{{AGE}}', animal.age)
+                .replace('{{TYPE}}', animal.type);
+            listItems += liHtml;
+        });
+        html = html.replace('{{LI}}', listItems)
+        res.send(html);
+    });
+});
 
 
 
