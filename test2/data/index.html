@@ -57,10 +57,10 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">AGE</label>
-                            <input type="text" class="form-control" name="height">
+                            <input type="text" class="form-control" name="age">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">TIPE</label>
+                            <label class="form-label">TYPE</label>
                             <select class="form-select" name="type">
                                 <option value="žoliaėdis">žoliaėdis</option>
                                 <option value="plėšrūnas">plėšrūnas</option>
@@ -90,6 +90,25 @@
                     </form>
                 </div>
             </div>
+            <div class="col-4">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h2>Water Tree</h2>
+                    </div>
+                    <form class="card-body" action="http://localhost:8080/water" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">ID</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">AGE</label>
+                            <input type="text" class="form-control" name="age">
+                        </div>
+                        <div class="mb-3 mt-5">
+                            <button type="submit" class="btn btn-outline-info">Edit</button>
+                        </div>
+                    </form>
+                </div>
         </div>
     </div>
 </body>
