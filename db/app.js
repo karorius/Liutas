@@ -19,6 +19,129 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
+
+app.get('/book', (_, res) => {
+
+    let html = fs.readFileSync('./data/book.html', 'utf8');
+    const listItem = fs.readFileSync('./data/listItem2.html', 'utf8');
+
+    // SELECT ProductID, ProductName, CategoryName
+    // FROM Products
+    // INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+
+
+    const sql = `
+        SELECT c.id,p.id As pid, c.name, p.number
+        FROM clients AS c
+        INNER JOIN phones AS p
+        ON c.id = p.client_id
+        ORDER BY c.name
+    `;
+
+    connection.query(sql, (err, rows) => {
+        if (err) throw err;
+
+const clients =[];
+rows.forEach(client => client => {
+    const clientFromlist = clients.find(c => c.id === client.id);
+    if (!clientFromlist) {
+        clients.push({...client, number: [client.number], pid: [client.pid]});
+    } else { 
+        clientFromlist.number.push(client.number);
+        clientFromlist.pid.push(client.pid);
+    }
+
+})
+
+
+
+
+
+
+
+
+        console.log(rows)
+        let listItems = '';
+        rows.forEach(client => {
+            let liHtml = listItem;
+            liHtml = liHtml
+                .replace('{{ID}}', client.id)
+                .replace('{{NAME}}', client.name)
+                .replace('{{PID}}', client.pid)
+                .replace('{{PHONE}}', client.number)
+            listItems += liHtml;
+        });
+        html = html.replace('{{LI}}', listItems)
+        res.send(html);
+    });
+});
+
+
+
+app.get('/stats', (_, res) => {
+
+    let html = fs.readFileSync('./data/stats.html', 'utf8');
+
+    
+    const sql = `
+        SELECT MIN(height) AS min, MAX(height) AS max, COUNT(*) AS count, SUM(height) AS sum, AVG(height) AS avg
+        FROM trees
+    `;
+    connection.query(sql, (err, rows) => {
+        if (err) throw err;
+      
+        html = html
+        .replace('{{MAX}}', rows[0].max)
+        .replace('{{MIN}}', rows[0].min)
+        .replace('{{SUM}}', rows[0].sum)
+        .replace('{{COUNT}}', rows[0].count)
+        .replace('{{AVG}}', rows[0].avg);
+
+        res.send(html);
+    });
+
+
+    
+
+});
+
+
+app.get('/find', (req, res) => {
+
+    let html = fs.readFileSync('./data/find.html', 'utf8');
+    const listItem = fs.readFileSync('./data/listItem.html', 'utf8');
+
+    // SELECT column1, column2, ...
+    // FROM table_name;
+
+    const s = req.query.s;
+
+    const sql = `
+        SELECT id, name, height, type
+        FROM trees
+        WHERE name LIKE ?
+    `;
+
+    connection.query(sql, ['%' + s + '%'], (err, rows) => {
+        if (err) throw err;
+
+        let listItems = '';
+        rows.forEach(tree => {
+            let liHtml = listItem;
+            liHtml = liHtml
+                .replace('{{ID}}', tree.id)
+                .replace('{{NAME}}', tree.name)
+                .replace('{{HEIGHT}}', tree.height)
+                .replace('{{TYPE}}', tree.type);
+            listItems += liHtml;
+        });
+        html = html.replace('{{LI}}', listItems).replace('{{S}}', s);
+        res.send(html);
+    });
+});
+
+
+
 app.get('/', (_, res) => {
 
     let html = fs.readFileSync('./data/index.html', 'utf8');
@@ -55,7 +178,13 @@ app.get('/', (_, res) => {
 
 app.post('/plant', (req, res) => {
 
-    const { name, height, type } = req.body;
+    let { name, height, type } = req.body;
+
+    // sanitization
+    height = parseFloat(height);
+    isNaN(height) && (height = 0);
+    !['lapuotis', 'spygliuotis', 'palmė'].includes(type) && (type = 'lapuotis');
+    !name && (name = '---');
 
     //  INSERT INTO table_name (column1, column2, column3, ...)
     //  VALUES (value1, value2, value3, ...);
@@ -69,11 +198,12 @@ app.post('/plant', (req, res) => {
     INSERT INTO trees (name, height, type)
     VALUES ( ?, ?, ? )
 `;
-    connection.query(sql, [name, parseFloat(height), type], err => {
+    connection.query(sql, [name, height, type], err => {
         if (err) throw err;
         res.redirect(302, 'http://localhost:8080/');
     });
 });
+
 
 
 app.post('/cut', (req, res) => {

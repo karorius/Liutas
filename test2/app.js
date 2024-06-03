@@ -17,19 +17,28 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
-// SELECT column1, column2, ...
-// FROM table_name;
-
 
 app.get('/',(req,res) =>{
 
     let html = fs.readFileSync('./data/index.html', 'utf8');
     const listItem = fs.readFileSync('./data/listItem.html', 'utf8'); 
+
     const sql = `
     SELECT id, name, age, type
     FROM animals
-    WHERE age > 10
+    WHERE age < 10
     `;
+
+    // const sql = `
+    // SELECT DISTINCT id, name age, type
+    // FROM animals
+    // WHERE type = 'plėšrūnas'
+    
+    // `;
+
+
+
+
     connection.query(sql, (err,rows) => {
         if (err) throw err
 
