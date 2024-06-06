@@ -18,6 +18,7 @@ button {
     font-weight: lighter;
     transition: all 0.25s;
     border: none;
+   
     &.blue {
         background-color: $b1;
         color: black;
@@ -53,4 +54,14 @@ button {
             background-color: darken($b5, 7%);
         }
     }
+}
+
+.buttons {
+    display: flex;
+    margin: 20px;
+    padding: 50px
+    
+}
+.medziai {
+    display: grid;
 }

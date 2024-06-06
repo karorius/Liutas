@@ -1,104 +1,91 @@
+import { useRef, useState } from 'react';
 import './App.css';
-import Fruit from './Components/003/Fruit';
-import Fig from './Components/003/Fig';
 import './buttons.scss';
-import { useState } from 'react';
-// import { useRef } from 'react';
+import randomColor from './Functions/randColor';
+
 function App() {
 
-    const fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape', 'honeydew', 'kiwi', 'lemon', 'mango', 'nectarine', 'orange', 'pear', 'quince', 'raspberry', 'strawberry', 'tangerine', 'ugli', 'watermelon'];
-
-    const fruits2 = [
-        { id: 1, name: 'apple', color: 'red' },
-        { id: 2, name: 'banana', color: 'yellow' },
-        { id: 3, name: 'cherry', color: 'red' },
-        { id: 4, name: 'date', color: 'brown' },
-        { id: 5, name: 'elderberry', color: 'black' },
-        { id: 6, name: 'fig', color: 'purple' },
-        { id: 7, name: 'grape', color: 'purple' },
-        { id: 8, name: 'honeydew', color: 'green' },
-        { id: 9, name: 'kiwi', color: 'brown' },
-        { id: 10, name: 'lemon', color: 'yellow' },
-        { id: 11, name: 'mango', color: 'orange' },
-        { id: 12, name: 'nectarine', color: 'orange' },
-        { id: 13, name: 'orange', color: 'orange' },
-        { id: 14, name: 'pear', color: 'green' },
-        { id: 15, name: 'quince', color: 'yellow' },
-        { id: 16, name: 'kiwi', color: 'brown' },
-        { id: 17, name: 'cherry', color: 'red' }
-    ];
 
 
+    const [m, setM] = useState([]);
+    const [p, setP] = useState([]);
+    const [sb, SetSb] = useState([])
 
-    // const bf = useRef(false);
+    const id = useRef(1);
 
-    const [count, setCount] = useState(100);
-
-
-
-    const blueClick = _ => {
-        // if (!bf.current) {
-        //     console.log('Blue Clicked!');
-        //     bf.current = true;
-        // }
-        console.log('Blue Clicked!');
-
-        setCount(c => c + 1);
-        setCount(c => c + 1);
-        setCount(c => c + 1);
-
+    const addM = _ => {
+        setM(a => [...a, {
+            id: id.current++,
+            color: randomColor()
+        }]);
     }
 
-    const redClick = what => {
-        console.log('Red Clicked!', what);
+    const addP = _ => {
+        setP(b => [...b, {
+            id: id.current++,
+            color: randomColor()
+        }]);
+    }
+    const addSb = _ => {
+        SetSb(c => [...c, {
+            id: id.current++,
+            color: randomColor()
+        }]);
     }
 
-    const buttonClick = (e, v = '') => {
-        console.log('Button Clicked!', e.target.classList[0], v);
-    }
 
 
     return (
         <div className="App">
             <header className="App-header">
-                <h1>{count}</h1>
-                <button type="button" className="blue" onClick={blueClick}>Click!</button>
-                <button type="button" className="red" onClick={_ => redClick('Ką tu?')}>Click!</button>
-                <button type="button" className="yellow" onClick={e => buttonClick(e, 'Valio')}>Click!</button>
-                <button type="button" className="white" onClick={e => buttonClick(e)}>Click!</button>
-                <button type="button" className="green" onClick={buttonClick}>Click!</button>
-                <button type="button" className="blue" onClick={_ => console.log('******')}>Click!</button>
-                <ul>
+                <h1>Sodiname medzius</h1>
+                <div className='medziai'>
+                <div className="sq-bin">
+
                     {
-                        fruits2.map(f => f.name !== 'fig'
-                            ?
-                            <Fruit key={f.id} fruit={f} />
-                            :
-                            <Fig key={f.id} fruit={f} />
-                        )
+                        m.map(s =>
+                            <div key={s.id} className="sq" style={{
+                                backgroundColor: s.color + '66',
+                                borderColor: s.color
+                            }}>
+                                {s.id}
+                            </div>)
+
                     }
+
+                </div>
+                <div className="sq-bin">
                     {
-                        fruits2
-                            .sort((a, b) => a.name.length - b.name.length)
-                            .map(f =>
-                                <li key={f.id} style={{ color: f.color }}>
-                                    <i>{f.name}</i>
-                                </li>
-                            )
+                        p.map(sp =>
+                            <div key={sp.id} className="sq" style={{
+                                backgroundColor: sp.color + '66',
+                                borderColor: sp.color
+                            }}>
+                                {sp.id}
+                            </div>)
+
                     }
-                </ul>
-                <ul>
+                </div>
+                <div className="sq-bin">
+
                     {
-                        fruits
-                            .sort((a, b) => a.length - b.length)
-                            .map((f, i) => f.length > 5
-                                ?
-                                <li style={{ color: 'skyblue' }} key={i}>{f}</li>
-                                :
-                                <li style={{ color: 'crimson' }} key={i}>{f}</li>
-                            )
+                        sb.map(c =>
+                            <div key={c.id} className="sq" style={{
+                                backgroundColor: c.color + '66',
+                                borderColor: c.color
+                            }}>
+                                {c.id}
+                            </div>)
+
                     }
-                </ul>
+                 </div>  
+                 </div>
+                    <div className="buttons">
+
+                        <button type="button" className="green" onClick={addM}> Prideti azuola </button>
+                        <button type="button" className="red" onClick={addP}>Prideti pusi </button>
+                        <button type="button" className="white" onClick={addSb}> Prideti berza </button>
+                    </div>
             </header>
         </div>
     );
