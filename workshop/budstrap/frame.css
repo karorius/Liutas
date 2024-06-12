@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.frame{
+    width: 100%;
+    height: 100vh;
+
+}
+.box1 {
+    background-image: url(./image/heartshaped-svg-16.png);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    animation: disco 1s infinite alternate linear;
+    animation-fill-mode: ;
+}
+@keyframes disco{
+
+}
+
+.box2 {
+    background-image: linear-gradient(
+  310deg,
+  hsl(240deg 87% 24%) 0%,
+  hsl(314deg 100% 29%) 23%,
+  hsl(337deg 100% 44%) 37%,
+  hsl(17deg 100% 59%) 48%,
+  hsl(45deg 100% 50%) 57%,
+  hsl(59deg 100% 46%) 66%,
+  hsl(68deg 100% 43%) 74%,
+  hsl(79deg 100% 42%) 82%,
+  hsl(94deg 85% 43%) 90%,
+  hsl(132deg 100% 37%) 100%
+);
+background-size: 200%;
+animation: linearAnimation 10s infinite linear;
+};
+
+@keyframes linearAnimation {
+
+    0% {
+        background-position: 0% 100%;
+    }
+}
+
+

@@ -1,91 +1,101 @@
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import './buttons.scss';
-import randomColor from './Functions/randColor';
-
+import Sq from './Components/007/Sq';
+import rand from './Functions/rand';
 function App() {
 
 
+    const [countLetter, setCountLetter] = useState(3);
+    const [letters, setLetters] = useState('');
+    // const [sq, setSq] = useState(_ => JSON.parse(localStorage.getItem('sq') ?? '[]'));
+    const [sq, setSq] = useState(null);
 
-    const [m, setM] = useState([]);
-    const [p, setP] = useState([]);
-    const [sb, SetSb] = useState([])
 
-    const id = useRef(1);
+    useEffect(_ => {
 
-    const addM = _ => {
-        setM(a => [...a, {
-            id: id.current++,
-            color: randomColor()
-        }]);
+        setTimeout(_ => {
+            setSq(JSON.parse(localStorage.getItem('sq') ?? '[]'));
+        }, 2000);
+
+    }, [setSq]);
+
+
+    useEffect(_ => {
+        if (sq === null) {
+            return;
+        }
+        localStorage.setItem('sq', JSON.stringify(sq));
+    }, [sq]);
+
+
+    const makeLetters = useCallback(_ => {
+        if (countLetter <= 5) {
+            setLetters('A'.repeat(countLetter));
+        } else {
+            setLetters('B'.repeat(countLetter));
+        }
+    }, [setLetters, countLetter]);
+
+    const doCount = _ => {
+        setCountLetter(c => c + 1);
     }
 
-    const addP = _ => {
-        setP(b => [...b, {
-            id: id.current++,
-            color: randomColor()
-        }]);
+    // const makeSq = _ => {
+    //     setSq(s => {
+    //         const newSq = [{id: rand(1000000, 9999999)}, ...s];
+    //         localStorage.setItem('sq', JSON.stringify(newSq));
+    //         return newSq;
+    //     });
+    // }
+    const makeSq = _ => {
+        setSq(s => [{ id: rand(1000000, 9999999) }, ...s]);
     }
-    const addSb = _ => {
-        SetSb(c => [...c, {
-            id: id.current++,
-            color: randomColor()
-        }]);
+
+    // const destroySq = id => {
+    //     setSq(s => {
+    //         const newSq = s.filter(sq => sq.id !== id);
+    //         localStorage.setItem('sq', JSON.stringify(newSq));
+    //         return newSq;
+    //     });
+    // }
+
+    const destroySq = id => {
+        setSq(s => s.filter(sq => sq.id !== id));
     }
+
+    useEffect(_ => {
+        makeLetters();
+    }, [countLetter, makeLetters]);
+
+    // useEffect(_ => {
+    //     console.log(sq.length);
+    // }, [sq]);
+
 
 
 
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Sodiname medzius</h1>
-                <div className='medziai'>
-                <div className="sq-bin">
-
-                    {
-                        m.map(s =>
-                            <div key={s.id} className="sq" style={{
-                                backgroundColor: s.color + '66',
-                                borderColor: s.color
-                            }}>
-                                {s.id}
-                            </div>)
-
-                    }
-
-                </div>
                 <div className="sq-bin">
                     {
-                        p.map(sp =>
-                            <div key={sp.id} className="sq" style={{
-                                backgroundColor: sp.color + '66',
-                                borderColor: sp.color
-                            }}>
-                                {sp.id}
-                            </div>)
-
+                        sq !== null
+                            ?
+                            sq.length
+                                ?
+                                sq.map(s => <Sq key={s.id} sq={s} destroySq={destroySq} />)
+                                :
+                                <div>No squares</div>
+                            :
+                            <div>Loading...</div>
                     }
                 </div>
-                <div className="sq-bin">
-
-                    {
-                        sb.map(c =>
-                            <div key={c.id} className="sq" style={{
-                                backgroundColor: c.color + '66',
-                                borderColor: c.color
-                            }}>
-                                {c.id}
-                            </div>)
-
-                    }
-                 </div>  
-                 </div>
-                    <div className="buttons">
-
-                        <button type="button" className="green" onClick={addM}> Prideti azuola </button>
-                        <button type="button" className="red" onClick={addP}>Prideti pusi </button>
-                        <button type="button" className="white" onClick={addSb}> Prideti berza </button>
-                    </div>
+                <h1>{letters}</h1>
+                <div className="buttons">
+                    <button type="button" className="green" onClick={doCount}>{countLetter}</button>
+                    <button type="button" className="blue" onClick={makeSq}>ADD []</button>
+                </div>
             </header>
         </div>
     );
