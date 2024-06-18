@@ -60,4 +60,26 @@ input {
   outline: none;
   padding: 3px 6px;
   font-size: 20px;
+  
+}
+.cb-svg svg {
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+ 
+div.cb label {
+  height: 30px;
+}
+ 
+span.cb {
+  line-height: 30px;
+  font-size: 30px;
+  padding-right: 10px;
+}
+ 
+div.cb {
+  display: flex;
+  align-items: center;
+  height: 30px;
 }
