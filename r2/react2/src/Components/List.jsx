@@ -1,5 +1,9 @@
-export default function List({ colors, setRemove, setEdit }) {
+import { useContext } from 'react';
+import { DataContext } from '../Contexts/DataContext';
 
+export default function List() {
+
+    const { colors } = useContext(DataContext);
 
     if (null === colors) {
         return (
@@ -8,7 +12,6 @@ export default function List({ colors, setRemove, setEdit }) {
             </ul>
         );
     }
-
 
     return (
         <ul className="list-group list-group-flush">
@@ -28,10 +31,13 @@ export default function List({ colors, setRemove, setEdit }) {
                                 }
                             </div>
                         </div>
-                        <div className="buttons">
-                            <button type="button" className="green" onClick={_ => setEdit(c)}>Edit</button>
-                            <button type="button" className="red" onClick={_ => setRemove(c)}>Delete</button>
-                        </div>
+                        {
+                            c.id !== 0 &&
+                            <div className="buttons">
+                                <button type="button" className="green" >Edit</button>
+                                <button type="button" className="red" >Delete</button>
+                            </div>
+                        }
                     </div>
                 </li>)
             }
