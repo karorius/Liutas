@@ -1,4 +1,3 @@
-
 export const GET_COLORS_FROM_SERVER = 'GET_COLORS_FROM_SERVER';
 
 export const ADD_COLOR = 'ADD_COLOR';
