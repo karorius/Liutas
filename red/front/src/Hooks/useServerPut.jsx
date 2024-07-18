@@ -3,7 +3,7 @@ import { SERVER_URL } from '../Constants/urls';
 import { useContext, useState } from 'react';
 import { MessagesContext } from '../Contexts/Messages';
 
-const useServerDelete = url => {
+const useServerPut = url => {
 
     const [response, setResponse] = useState(null);
 
@@ -11,7 +11,7 @@ const useServerDelete = url => {
 
     const doAction = data => {
 
-        axios.delete(`${SERVER_URL}${url}/${data.id}`)
+        axios.put(`${SERVER_URL}${url}/${data.id}`, data)
             .then(res => {
                 messageSuccess(res);
                 setResponse({
@@ -20,6 +20,7 @@ const useServerDelete = url => {
                 });
             })
             .catch(error => {
+                console.log(error);
                 messageError(error);
                 setResponse({
                     type: 'error',
@@ -34,4 +35,4 @@ const useServerDelete = url => {
 
 }
 
-export default useServerDelete;
+export default useServerPut;
