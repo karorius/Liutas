@@ -1,0 +1,129 @@
+<nav data-name="Navbar" aria-label="Main" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc d-none d-lg-block shadow-sm ">
+        
+
+        <div id="o_main_nav" class="container">
+            
+<a data-name="Navbar Logo" href="/lt" class="navbar-brand logo me-4">
+        
+        <span role="img" aria-label="Logo of My Website" title="My Website"><img src="/web/image/website/1/logo/My%20Website?unique=dac3f67" class="img img-fluid" width="95" height="40" alt="My Website" loading="lazy" style=""></span>
+    </a>
+
+            
+<ul id="top_menu" role="menu" class="nav navbar-nav me-auto">
+    
+
+                
+<li role="presentation" class="nav-item">
+    <a role="menuitem" href="/lt" class="nav-link active">
+        <span>Pradžia</span>
+    </a>
+</li>
+<li role="presentation" class="nav-item">
+    <a role="menuitem" href="/lt/taisykles" class="nav-link ">
+        <span>Taisykles</span>
+    </a>
+</li>
+
+
+
+            
+<li role="presentation" class="nav-item">
+    <a role="menuitem" href="/lt/blog/2" class="nav-link">
+        <span>Naujienos</span>
+    </a>
+</li><div class="nav-item dropdown o_extra_menu_items"><a role="button" href="#" class="nav-link dropdown-toggle o-no-caret" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-plus"></i></a><div class="dropdown-menu"><li role="presentation" class="">
+    <a role="menuitem" href="/lt/contactus" class="dropdown-item">
+        <span>Susisiekite su mumis</span>
+    </a>
+</li><li role="presentation" class="">
+    <a role="menuitem" href="/lt/cp-limitai" class="dropdown-item">
+        <span>CP limitai</span>
+    </a>
+</li></div></div></ul>
+            
+            <ul class="navbar-nav align-items-center gap-2 flex-shrink-0 justify-content-end ps-3">
+                
+    <li class="">
+            <div class="modal fade" id="o_search_modal" aria-hidden="true" tabindex="-1">
+                <div class="modal-dialog modal-lg pt-5">
+                    <div class="modal-content mt-5">
+<form method="get" class="o_searchbar_form s_searchbar_input" action="/lt/website/search" data-snippet="s_searchbar_input">
+        <div role="search" class="input-group input-group-lg">
+    <input type="search" name="search" class="search-query form-control oe_search_box border-0 bg-light border border-end-0 p-3" placeholder="Ieškoti..." data-search-type="all" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc" autocomplete="off">
+    <button type="submit" aria-label="Paieška" title="Paieška" class="btn oe_search_button border border-start-0 px-4 bg-o-color-4">
+        <i class="oi oi-search"></i>
+    </button>
+</div>
+
+        <input name="order" type="hidden" class="o_search_order_by" value="name asc">
+        
+
+    </form>
+                    </div>
+                </div>
+            </div>
+            <a data-bs-target="#o_search_modal" data-bs-toggle="modal" role="button" title="Paieška" class="btn rounded-circle p-1 lh-1 o_navlink_background text-reset o_not_editable">
+                <i class="oi oi-search fa-stack lh-lg"></i>
+            </a>
+    </li>
+                
+    <li class="">
+            <div data-name="Text" class="s_text_block ">
+                <a href="tel:+1 (650) 555-0111" class="nav-link o_nav-link_secondary p-2">
+                    <i class="fa fa-1x fa-fw fa-phone me-1"></i>
+                    <span class="o_force_ltr"><small>+1 (650) 555-0111</small></span>
+                </a>
+            </div>
+    </li>
+                
+                
+    <li data-name="Language Selector" class="o_header_language_selector ">
+    
+        <div class="js_language_selector  dropdown d-print-none">
+            <button type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn border-0 dropdown-toggle btn-outline-secondary border-0">
+                <span class="align-middle small"> Lietuvių kalba</span>
+            </button>
+            <div role="menu" class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item js_change_lang " href="" data-url_code="en_GB" title="English (UK)">
+                        <span class="small">English (UK)</span>
+                    </a>
+                    <a class="dropdown-item js_change_lang active" href="/lt" data-url_code="lt" title=" Lietuvių kalba">
+                        <span class="small"> Lietuvių kalba</span>
+                    </a>
+            </div>
+        </div>
+    
+    </li>
+                
+        
+                
+    
+<li class="dropdown o_no_autohide_item">
+            <a href="#" role="button" data-bs-toggle="dropdown" class="dropdown-toggle btn btn-outline-secondary border-0 fw-bold">
+                <span class="small">Darius</span>
+            </a>
+            <div role="menu" class="dropdown-menu js_usermenu dropdown-menu-end">
+        <a href="/lt/my/home" role="menuitem" class="dropdown-item ps-3">
+            <i class="fa fa-fw fa-id-card-o me-1 small text-primary"></i> My Account
+        </a>
+                <div id="o_logout_divider" class="dropdown-divider"></div>
+                <a role="menuitem" id="o_logout" class="dropdown-item ps-3" href="/web/session/logout?redirect=/">
+                    <i class="fa fa-fw fa-sign-out me-1 small text-primary"></i> Logout
+                </a>
+            </div>
+        </li>
+    
+                
+    <li class="">
+        <div class="oe_structure oe_structure_solo ">
+            <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <a href="/lt/contactus" class="oe_unremovable btn btn-primary btn_cta w-100 w-100 w-100">Susisiekite su mumis</a>
+                </div>
+            </section>
+        </div>
+    </li>
+            </ul>
+        </div>
+    
+</nav>

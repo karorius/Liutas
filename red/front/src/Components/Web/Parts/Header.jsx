@@ -1,27 +1,23 @@
-import { useContext } from 'react';
 import * as l from '../../../Constants/urls';
-import { AuthContext } from '../../../Contexts/Auth';
+import Logout from '../../Common/Logout';
+import Gate from '../../Common/Gate';
 
 export default function Header() {
-
-    const { user } = useContext(AuthContext);
 
     return (
         <header id="header">
             <a href="index.html" className="logo"><strong>Raudonoji</strong> Knyga</a>
             <ul className="icons">
-                {
-                    user
-                        ?
-                        <li><button className="link"><span className="label">Atsijungti, {user.name}</span></button></li>
-                        :
-                        <>
-                            <li><a href={l.SITE_LOGIN}><span className="label">Prisijungti</span></a></li>
-                            <li><a href={l.SITE_REGISTER}><span className="label">Registruotis</span></a></li>
-                        </>
-                }
-
-                <li><a href={l.SITE_DASHBORD}><span className="label">Laikinas ADMIN </span></a></li>
+                <Gate status="role" role={['admin', 'user']}>
+                    <li><a href={l.SITE_DASHBORD}><span className="label">Administravimas</span></a></li>
+                </Gate>
+                <Gate status="logged">
+                    <li><Logout /></li>
+                </Gate>
+                <Gate status="not-logged">
+                    <li><a href={l.SITE_LOGIN}><span className="label">Prisijungti</span></a></li>
+                    <li><a href={l.SITE_REGISTER}><span className="label">Registruotis</span></a></li>
+                </Gate>
             </ul>
         </header>
     );

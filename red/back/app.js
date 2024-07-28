@@ -94,14 +94,100 @@ const checkUserIsAuthorized = (req, res, roles) => {
 
 app.use(checkSession);
 
-
-
-
-
-
-app.get('/admin/users', (_, res) => {
+app.get('/web/types', (req, res) => {
 
     setTimeout(_ => {
+
+        const sql = `SELECT * FROM types`;
+
+        connection.query(sql, (err, rows) => {
+            if (err) throw err;
+            res.json({
+                types: rows
+            }).end();
+        });
+
+    }, 1500);
+
+
+});
+
+
+app.get('/web/content', (req, res) => {
+
+    setTimeout(_ => {
+
+        const sql = `
+        SELECT *
+        FROM options`;
+
+        connection.query(sql, (err, rows) => {
+            if (err) throw err;
+            res.json({
+                content: rows
+            }).end();
+        });
+
+    }, 1500);
+});
+
+app.get('/admin/edit/contacts', (req, res) => {
+    setTimeout(_ => {
+        const sql = `
+        SELECT value
+        FROM options
+        WHERE name = 'contacts'`;
+        connection.query(sql, (err, rows) => {
+            if (err) throw err;
+            res.json({
+                contacts: rows[0]
+            }).end();
+        });
+    }, 1500);
+});
+
+
+app.put('/admin/update/contacts', (req, res) => {
+
+    setTimeout(_ => {
+
+        const { title, email, about, phone, address } = req.body;
+
+        //TODO: Validation
+
+        const value = JSON.stringify({ title, email, about, phone, address });
+        
+            const sql = `
+                UPDATE options
+                SET value = ?
+                WHERE name = 'contacts'
+                `;
+
+            connection.query(sql, [value], (err) => {
+                if (err) throw err;
+                res.json({
+                    message: {
+                        type: 'success',
+                        title: 'Vartotojai',
+                        text: `Kontaktai sėkmingai atnaujinti`
+                    }
+                }).end();
+            });
+        
+
+    }, 1500);
+
+});
+
+
+
+app.get('/admin/users', (req, res) => {
+
+    setTimeout(_ => {
+
+        if (!checkUserIsAuthorized(req, res, ['admin'])) {
+            return;
+        }
 
         const sql = `
         SELECT *
@@ -307,6 +393,44 @@ app.post('/login', (req, res) => {
                     user: rows?.[0]
                 }).end();
             });
+        });
+
+    }, 1500);
+});
+
+app.post('/logout', (req, res) => {
+
+    setTimeout(_ => {
+
+        const session = req.cookies['book-session'];
+
+        const sql = `
+                UPDATE users
+                SET session = NULL
+                WHERE session = ?
+            `;
+
+        connection.query(sql, [session], (err, result) => {
+            if (err) throw err;
+            const logged = result.affectedRows;
+            if (!logged) {
+                res.status(401).json({
+                    message: {
+                        type: 'error',
+                        title: 'Atsijungimas nepavyko',
+                        text: `Neteisingi prisijungimo duomenys`
+                    }
+                }).end();
+                return;
+            }
+            res.clearCookie('book-session');
+            res.json({
+                message: {
+                    type: 'success',
+                    title: `Atsijungta`,
+                    text: `Jūs sėkmingai atsijungėte`
+                }
+            }).end();
         });
 
     }, 1500);
