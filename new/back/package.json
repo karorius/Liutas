@@ -1,14 +1,14 @@
 {
-  "name": "back",
+  "name": "project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "I",
   "license": "ISC",
-  "description": "",
+  "description": "Project",
   "dependencies": {
     "express": "^4.19.2"
   }

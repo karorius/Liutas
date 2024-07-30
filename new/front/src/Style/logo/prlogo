@@ -1,0 +1,10 @@
+<section className="fiveIconsContainer">
+                    <h2>Trusted by top brands</h2>
+                    <div className="fiveIconContainer">
+                        <img src="./Standard Collection 0.jpg" alt="" />
+                        <img src="./Standard Collection 2.jpg" alt="" />
+                        <img src="./Standard Collection 3.jpg" alt="" />
+                        <img src="./Standard Collection 8.jpg" alt="" />
+                        <img src="./Standard Collection 9.jpg" alt="" />
+                    </div>
+                </section>

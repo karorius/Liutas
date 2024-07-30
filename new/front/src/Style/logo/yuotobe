@@ -1,0 +1,57 @@
+ <section className="videoContainer">
+                    <h2 className="VideoHeader">Fastest, Safest & Budget friendly</h2>
+                    <p className="VideoPara">Managing your projects on spreadsheet  or messaging app is a time-taking and inefficient way.They can't link various project data effectively at once place , thus you won't be able to avoid project cost escalation effectively .</p>
+
+                    <iframe width="1060" height="415" src="https://www.youtube.com/embed/n2U3vjfmjig?si=9vi-36u1xmU_kaYw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </section>
+
+                <section className="projektsDoneContainer">
+
+                    <section className="workgroup">
+                        <div className="tekstai">
+                            <div className="hasdu">
+                                <h2>Join us</h2>
+                            </div>
+                            <div className="ppp">
+                                <p>
+                                    At start, we're all about delivering better experiences for our
+                                    customers. Join our team to make impact on the next billion users
+                                    in the construction industry.
+                                </p>
+                            </div>
+                            <div className="pp">
+                                <p>Explore Oppurtunities</p>
+                            </div>
+                        </div>
+    
+                        <div className="piesineliai">
+                            <img src="../Surfboard/figma/Vector 1.png" className="vektorinis" />
+                            <div className="ikonyte1">
+                                <img src="../Surfboard/figma/nuot1.png" alt="" />
+                            </div>
+                            <div className="ikonyte2">
+                                <img src="../Surfboard/figma/nuot2.png" alt="" />
+                            </div>
+                            <div className="ikonyte3">
+                                <img src="../Surfboard/figma/nuot3.png" alt="" />
+                            </div>
+                            <div className="ikonyte4">
+                                <img src="../Surfboard/figma/nuot4.png" alt="" />
+                            </div>
+                            <div className="ikonyte5">
+                                <img src="../Surfboard/figma/nuot5.png" alt="" />
+                            </div>
+                            <div className="ikonyte6">
+                                <img src="../Surfboard/figma/nuot6.png" alt="" />
+                            </div>
+                            <div className="ikonyte7">
+                                <img src="../Surfboard/figma/nuot7.png" alt="" />
+                            </div>
+                            <div className="ikonyte8">
+                                <img src="../Surfboard/figma/nuot8.png" alt="" />
+                            </div>
+                            <p>You?</p>
+                        </div>
+                    </section>
+    
+    

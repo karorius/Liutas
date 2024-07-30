@@ -57,8 +57,7 @@ export default function Register() {
 
     return (
         <>
-            <Gate status="not-logged">
-                <div id="wrapper">
+                      <div id="wrapper">
                     <div id="main">
                         <div className="inner">
                             <header id="header"><h2>Registruotis</h2></header>
@@ -100,10 +99,6 @@ export default function Register() {
                         </div>
                     </div>
                 </div>
-            </Gate>
-            <Gate status="logged">
-                <Redirect to="SITE_HOME" />
-            </Gate>
-        </>
-    );
+            </>
+            );
 }

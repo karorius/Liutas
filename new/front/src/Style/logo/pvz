@@ -1,0 +1,36 @@
+<div className="topline">
+  <p>
+    Nauju ideju svetaine <span className="LearnMore"> Skaityti daugiau</span>
+  </p>
+</div>
+<div className="menuContainer">
+  <div className="topLogo">
+    <img src="" alt="logo" className="logoImg" />
+  </div>
+  <nav className="topNavContainer">
+    <ul className="topUlcontainer">
+      <li>
+        <a href="/#saitas/aprasymas" className="icon  "
+          ><span className="label">Apie</span></a
+        >
+      </li>
+      <li>
+        <a href="/#idejos/sukurti" className="icon  "
+          ><span className="label">Naujos idejos</span></a
+        >
+      </li>
+      <li>
+        <a href="/#Home" className="icon  "
+          ><span className="label">Home</span></a
+        >
+      </li>
+      <li>
+        <a href="/#Admin" className="icon  "
+          ><span className="label">Administravimas</span></a
+        >
+      </li>
+    </ul>
+    <button className="btn reqestDemoTop">Prisijungti</button>
+    <button className="btn reqestDemoTop">Registracija</button>
+  </nav>
+</div>
