@@ -1,38 +1,31 @@
 export default function Menu() {
 
     return (
-        <nav id="menu">
-            <header className="major">
-                <h2>Menu</h2>
-            </header>
-            <ul>
-                <li><a href="/#">Pagrindinis</a></li>
-                <li><a href="/#bebras">Bebras</a></li>
-                <li><a href="/#zebras">Zebras</a></li>
-                <li>
-                    <span className="opener">Submenu</span>
-                    <ul>
-                        <li><a href="/#">Lorem Dolor</a></li>
-                        <li><a href="/#">Ipsum Adipiscing</a></li>
-                        <li><a href="/#">Tempus Magna</a></li>
-                        <li><a href="/#">Feugiat Veroeros</a></li>
-                    </ul>
-                </li>
-                <li><a href="/#">Etiam Dolore</a></li>
-                <li><a href="/#">Adipiscing</a></li>
-                <li>
-                    <span className="opener">Another Submenu</span>
-                    <ul>
-                        <li><a href="/#">Lorem Dolor</a></li>
-                        <li><a href="/#">Ipsum Adipiscing</a></li>
-                        <li><a href="/#">Tempus Magna</a></li>
-                        <li><a href="/#">Feugiat Veroeros</a></li>
-                    </ul>
-                </li>
-                <li><a href="/#">Maximus Erat</a></li>
-                <li><a href="/#">Sapien Mauris</a></li>
-                <li><a href="/#">Amet Lacinia</a></li>
-            </ul>
-        </nav>
+        <aside className="sidebar">
+        <div className="sidebar-header">
+         
+     
+        </div>
+        <ul className="sidebar-links">
+        
+          <li>
+            <a href="/#Pagrindinis">
+              <span className="material-symbols-outlined"> 1 </span>Pagrindinis</a>
+          </li>
+          <li>
+            <a href="/#Apie"><span className="material-symbols-outlined"> 2 </span>Apie</a>
+          </li>
+          <li>
+            <a href="/#Idejos"><span className="material-symbols-outlined"> 3</span>Naujos Idejos</a>
+          </li>
+         
+          <li>
+            <a href="/#Vartotojai"><span className="material-symbols-outlined"> 4 </span>Vartotojai</a>
+          </li>
+          
+         
+        </ul>
+        
+      </aside>
     );
 }

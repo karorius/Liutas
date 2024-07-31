@@ -1,0 +1,26 @@
+ <aside className="sidebar">
+        <div className="sidebar-header">
+         
+     
+        </div>
+        <ul className="sidebar-links">
+        
+          <li>
+            <a href="/#">
+              <span className="material-symbols-outlined"> 1 </span>Meniu</a>
+          </li>
+          <li>
+            <a href="/#"><span className="material-symbols-outlined"> 2 </span>Apie</a>
+          </li>
+          <li>
+            <a href="/#"><span className="material-symbols-outlined"> 3</span>Naujos Idejos</a>
+          </li>
+         
+          <li>
+            <a href="/#"><span className="material-symbols-outlined"> 4 </span>Admin</a>
+          </li>
+          
+         
+        </ul>
+        
+      </aside>

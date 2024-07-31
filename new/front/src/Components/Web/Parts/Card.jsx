@@ -16,6 +16,7 @@ export default function Card() {
             <div className="card">
                 <div className="card-side card-front">Atversk</div>
                 <div className="card-side card-back">Back</div>
+               
             </div>
 
 
