@@ -1,69 +1,52 @@
 <!DOCTYPE html>
-<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://127.0.0.1:5500/027/c.css">
+    <script src="http://127.0.0.1:5500/027/c.js"></script>
+    <title>Document</title>
+</head>
 <body>
-
-    <body>
-        <header>
-          <div class="topline">
-            <p>
-              India’s first mobile app for construction industry. <span class="LearnMore"> Learn More</span>
-            </p>
-          </div>
-          <div class="menuContainer">
-            <div class="topLogo">
-              <img src="./Collab.png" alt="logo" class="logoImg" />
+    <div id="wrapper">
+        <div id="main">
+            <div className="inner">
+                <header id="header"></header>
+                <section>
+                    <header className="main">
+                        <div className="row aln-center">
+                            <div className="col-6 col-8-large col-10-medium col-12-small">
+                                <form>
+                                    <div className="row gtr-uniform">
+                                        <div className="col-12">
+                                            <h3>Registruotis</h3>
+                                        </div>
+                                        <div className="col-6 col-12-xsmall">
+                                            <input type="text" name="name" placeholder="Vardas" autoComplete="username" />
+                                        </div>
+                                        <div className="col-6 col-12-xsmall">
+                                            <input type="email" name="email" placeholder="El. paštas" autoComplete="email" />
+                                        </div>
+                                        <div className="col-6 col-12-xsmall">
+                                            <input type="password" name="psw" placeholder="Slaptažodis" autoComplete="new-password" />
+                                        </div>
+                                        <div className="col-6 col-12-xsmall">
+                                            <input type="password" name="psw2" placeholder="Pakartoti" autoComplete="new-password" />
+                                        </div>
+                                        <div className="col-12">
+                                            <ul className="actions">
+                                                <li><input type="button" value="Registruotis" className="primary" /></li>
+                                            </ul>
+                                        </div>
+                                        <div className="col-12"><a href="/#">Grįžti į pradinį</a></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </header>
+                </section>
             </div>
-            <nav class="topNavContainer">
-              <ul class="topUlcontainer">
-                <li><a href="">Abaut</a></li>
-                <li><a href="">Product</a></li>
-                <li><a href="">Team</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Shop</a></li>
-              </ul>
-              <button class="btn reqestDemoTop">Request Demo</button>
-            </nav>
-          </div>
-        </header>
-      
-        <main class="mainContainer">
-          <aside class="sidebar">
-            <ul>
-              <li><a href="#">Dashboard</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Settings</a></li>
-            </ul>
-          </aside>
-          <div class="content">
-            <section class="mainContainerSectionOne">
-              <h2 class="topHead">Easy solution for builders and contractors<br>to manage and execute projects within budget range</h2>
-              <button class="topHeadBtn">Request Demo</button>
-            </section>
-            <section class="elipseContainer">
-              <div class="allElipseWithButton">
-                <img src="./Ellipse 2.png" alt="" class="bigElipse">
-                <img src="./Ellipse 1.png" alt="" class="smallElipse">
-                <img src="./Rectangle 3.png" alt="" class="rectlangle">
-                <img src="./Collab2.png" alt="" class="collabWord">
-                <button class="elipseButton">Explore Products</button>
-              </div>
-            </section>
-            <section class="fiveIconsContainer">
-              <h2>Trusted by top brands</h2>
-              <div class="fiveIconContainer">
-                <img src="./Standard Collection 0.jpg" alt="">
-                <img src="./Standard Collection 2.jpg" alt="">
-                <img src="./Standard Collection 3.jpg" alt="">
-                <img src="./Standard Collection 8.jpg" alt="">
-                <img src="./Standard Collection 9.jpg" alt="">
-              </div>
-            </section>
-          </div>
-        </main>
-      </body>
-      
+        </div>
+    </div>
+</body>
+</html>

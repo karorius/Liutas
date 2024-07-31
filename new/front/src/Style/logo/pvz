@@ -34,3 +34,9 @@
     <button className="btn reqestDemoTop">Registracija</button>
   </nav>
 </div>
+virsus 
+<div className="topline">
+<p>
+Nauju ideju svetaine <span className="LearnMore"> Skaityti daugiau</span>
+</p>
+</div>
